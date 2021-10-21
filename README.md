@@ -11,7 +11,7 @@ El publico al que va dirigido es a todas las personas que por estar en su trabaj
 
 Alejandro Velazquez- Soy mexicano, tengo 30 años y soy Ingeniero en Telecomunicaciones, soy apasionado del futbol tanto verlo como jugarlo.
 
-Matias Juarez-
+Matias Juarez- Ingeniero Electrónico, 31 años, me divierto con la Tecnologia y me gusta brindar soluciones a medida. Me gusta el futbol y viajar =)
 
 Eduardo Maniscalco-
 
