@@ -17,7 +17,7 @@ Alejandro Velazquez- Soy mexicano, tengo 30 años y soy Ingeniero en Telecomunic
 
 Matias Juarez- Ingeniero Electrónico, 31 años, me divierto con la Tecnologia y me gusta brindar soluciones a medida. Me gusta el futbol y viajar =)
 
-Eduardo Maniscalco-
+Eduardo Maniscalco- 42 años, casado, padre. Estudie abogacía y soy productor de espectáculos.
 
 Heriberto Sola-
 
