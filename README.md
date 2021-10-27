@@ -19,7 +19,7 @@ Matias Juarez- Ingeniero Electrónico, 31 años, me divierto con la Tecnologia y
 
 Eduardo Maniscalco- 42 años, casado, padre. Estudie abogacía y soy productor de espectáculos.
 
-Heriberto Sola-
+Heriberto Sola- Soy argentino, tengo 23 años, me gusta adquirir conocimientos.
 
 
 # Referentes-Inspiracion
