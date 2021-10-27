@@ -1,10 +1,14 @@
 
 https://github.com/Alets05/Grupo_12_Supermercado.git
 
-# Descripcion Pagina  "  " 
+# Descripcion Pagina  " SuperMarket " 
 
 Tienda en linea de articulos de supermercado en la cual uno puede comprar su despensa sin necesidad de ir a la tienda fisica y evitar estar expuestos a contraer COVID19. Dentro de la pagina uno puede seleccionar sus productos de comida, limpieza e irlos poniendo dentro del carrito de compras.
 El publico al que va dirigido es a todas las personas que por estar en su trabajo no pueden ir de compras o las que no estan saliendo de sus casas por ser considerado vulnerable a contraer el virus, pueda comprarlo desde sus casas.
+
+# Github Link
+
+https://github.com/Alets05/Grupo_12_Supermercado.git
 
 
 # Descripcion Integrantes
