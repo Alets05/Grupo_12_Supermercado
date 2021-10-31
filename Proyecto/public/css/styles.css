@@ -1,9 +1,92 @@
 /* Reset CSS */
-*{
+* {
 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 }
 
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/******** Header*********/
+/* navbar */
+
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgba(93, 191, 189, 0.453);
+    height: 10%vh;
+    position: sticky;
+}
+
+.item{
+    margin-top: 5px;;
+    width:100%;
+    text-align: center;
+    /* display: none;
+     */
+    
+    }
+
+.item.active{
+    background-color: rgb(0, 145, 255);
+}
+
+
+.logo{
+    width: 20px;
+    height: auto;
+}
+
+
+/* Esta parte central se debe extraer y colocar en home.css */
+.carrousel, .descuentos{
+    height: 30vh;
+}
+
+.descuentos{
+    background-color: rgb(185, 216, 121);
+}
+
+.carrousel{
+    background-color: rgb(163, 118, 97);
+}
+
+
+.newsletter{
+    height: 10vh;
+}
+
+
+/* Fin parte central */
+
+/******** Footer *********/
+footer{
+    padding: 5px;
+    order: 1;
+    text-align: center;
+    background-color: rgb(55, 53, 51);
+    color:white;   
+    margin-top: auto;
+}
+
+.sec-items{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+
+.copyright{
+    margin: 5px auto;
+}
