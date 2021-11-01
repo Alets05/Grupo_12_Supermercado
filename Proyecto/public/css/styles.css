@@ -7,6 +7,16 @@
    
 }
 
+/* Paleta de colores */
+:root {
+    --menu-color : rgba(93, 191, 189, 0.7);
+    --footer-color: rgb(55, 53, 51);
+    --modal-secondary-color: rgba(55, 53, 51, 0.85);
+    --GrisOscuro: #666;
+    --GrisClaro: #ebebeb;
+    --Verde: #39b54a;
+  }
+
 
 body{
     display: flex;
@@ -23,17 +33,61 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: rgba(93, 191, 189, 0.453);
+    background-color: var(--menu-color);
     height: 10%vh;
     position: sticky;
 }
 
+.panel-categorias{
+    /*
+    Haciendo position : fixed y seteando top bottom left right ESTIRO el panel, ocupando .
+    incluso header y footer. 
+    - sin declarar position, y haciendo height : 100vh, width:100vw no cubro header y footer. 
+    width: 100vw;
+    height: 100vh; 
+    */
+    position: fixed;
+    top:0;          
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    background-color : var(--modal-secondary-color);
+    transition: transform 0.3s ease;
+    transform: translate(0, -100%);
+
+}
+
+.panel-categorias.is-active{
+    transform: translate(0,0);
+}
+
+.menu-categorias{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+
+.menu-categorias a{
+    color: white;
+    width: 100%;
+    padding: 2rem;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.menu-categorias a:hover {
+    background-color: var(--menu-color);
+}
+
+
 .item{
-    margin-top: 5px;;
+    margin-top: 5px;
     width:100%;
     text-align: center;
-    /* display: none;
-     */
     
     }
 
@@ -74,7 +128,7 @@ footer{
     padding: 5px;
     order: 1;
     text-align: center;
-    background-color: rgb(55, 53, 51);
+    background-color: var(--footer-color);
     color:white;   
     margin-top: auto;
 }
