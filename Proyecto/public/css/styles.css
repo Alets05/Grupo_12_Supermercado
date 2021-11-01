@@ -8,8 +8,9 @@
    
 }
 
-/* Paleta de colores */
+/* Variables */
 :root {
+    /* Colores */
     --menu-color: rgb(113, 4, 157);
     /* --menu-color : rgba(93, 191, 189,1); */
     --footer-color: rgb(55, 53, 51);
@@ -17,6 +18,9 @@
     --GrisOscuro: #666;
     --GrisClaro: #ebebeb;
     --Verde: #39b54a;
+
+    /* Variables */
+    --menu-mobile-height : 15vh;
   }
 
   
@@ -31,6 +35,33 @@ body{
 
 
 /* navbar */
+.menu-mobile{
+    list-style-type: none;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height:  var(--menu-mobile-height);
+    width: 100vw;
+    background-color: honeydew;  
+   
+}
+
+.item-mobile{
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
+}
+.item-mobile a{
+    text-decoration: none;
+}
+
+.item-mobile .item-descripcion{
+    display: block !important;  
+}
+
 .menu {
     list-style-type: none;
     display: flex;
@@ -39,20 +70,21 @@ body{
     justify-content: space-between;
     background-color: var(--menu-color);
     height: 10%vh;
-
 }
 
 .item{
     margin-top: 5px;
     width:100%;
     text-align: center;
-    flex-grow: 1;
+    flex-grow: 0;
+    
     
 }
 
 /* search */
 .item-search{
-    flex-grow: 8;
+    flex-grow: 12;
+    /* display: block !important; */
 }
 
 
@@ -85,6 +117,10 @@ body{
 
 /* end search */
 
+.item-desktop{
+    display: none;
+}
+
 
 
 .item a{
@@ -107,6 +143,8 @@ body{
 .logo{
     width: 20px;
     height: auto;
+    flex-grow: 0;
+    
 }
 
 
@@ -160,8 +198,9 @@ body{
 
 
 /* Esta parte central se debe extraer y colocar en home.css */
+
 .carrousel, .descuentos{
-    height: 30vh;
+    height: 50vh;
 }
 
 .descuentos{
@@ -183,6 +222,7 @@ body{
 /******** Footer *********/
 footer{
     padding: 5px;
+    padding-bottom: var(--menu-mobile-height); /* Es la medida del menu-mobile*/ 
     order: 1;
     text-align: center;
     background-color: var(--footer-color);
@@ -207,6 +247,15 @@ footer{
 /******* tablets   ***************/
 @media (min-width:600px) {
 /******************** header *********************/
+.menu-mobile{
+    display: none;
+}
+
+
+.item-desktop{
+    display: inline;
+}
+
 .item span{
     display: block ;
 }
