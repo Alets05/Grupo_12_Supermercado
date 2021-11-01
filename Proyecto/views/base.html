@@ -8,6 +8,9 @@
     <!-- font awesone -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
+    <!-- Google font (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 
@@ -17,12 +20,39 @@
     <header>
         <nav>
             <ul class="menu">            
-                <li class="item">  <a href="#">  <i class="fas fa-bars">            </i> </a> </li>
-                <li class="item"> <img class="logo" src="img/MART2.png" alt="Logo">  </li>
-                <li class="item"> <input type="search" placeholder="Buscar...">   </li>
-                <li class="item"> <a href="#"> <i class="fas fa-search">   </i>    </a> </li>
-                <li class="item"> <a href="#"> <i class="fas fa-shopping-cart">      </i>   </a> </li>
-                <li class="item"> <a href="#">  <i class="fas fa-user">     </i>  </a>  </li>
+                <li class="item">  
+                    <a href="#"> 
+                        <span><i class="fas fa-bars">   </i>  </span> 
+                        <span class="item-descripcion">   Menú</span>         
+                    </a> 
+                </li>
+                <li class="item"> 
+                    <img class="logo" src="img/MART2.png" alt="Logo">  
+                </li>
+                <li class="item item-search"> 
+                    <div class='searchContainer'>
+                        <input type="search"  placeholder=" Buscar...">
+                        <button type="submit" class="btn-search">
+                            <i class="fas fa-search" ></i> 
+                        </button>                           
+                    </div>
+                    
+                    <a>
+                    </a>
+                 
+                </li>
+                <li class="item"> 
+                    <a href="#">
+                        <span><i class="fas fa-shopping-cart">  </i> </span> 
+                        <span class="item-descripcion"> Carrito</span>  
+                    </a> 
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <span><i class="fas fa-user">  </i> </span>
+                        <span class="item-descripcion"> Sesion</span>   
+                    </a>  
+                </li>
             </ul>
         </nav>
 

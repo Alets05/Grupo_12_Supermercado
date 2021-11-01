@@ -4,12 +4,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
    
 }
 
 /* Paleta de colores */
 :root {
-    --menu-color : rgba(93, 191, 189, 0.7);
+    --menu-color: rgb(113, 4, 157);
+    /* --menu-color : rgba(93, 191, 189,1); */
     --footer-color: rgb(55, 53, 51);
     --modal-secondary-color: rgba(55, 53, 51, 0.85);
     --GrisOscuro: #666;
@@ -17,26 +19,98 @@
     --Verde: #39b54a;
   }
 
-
+  
 body{
+    /* Esto permite el sticky footer */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 /******** Header*********/
+
+
 /* navbar */
-
-
 .menu {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     background-color: var(--menu-color);
     height: 10%vh;
-    position: sticky;
+
 }
+
+.item{
+    margin-top: 5px;
+    width:100%;
+    text-align: center;
+    flex-grow: 1;
+    
+}
+
+/* search */
+.item-search{
+    flex-grow: 8;
+}
+
+
+.searchContainer{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: white;
+  
+}
+
+.fa-search{
+    padding: 1px;
+    margin-right: 2px;
+}
+
+.btn-search{
+    background-color: var(--menu-color);
+    color: white; 
+    
+}
+
+.searchContainer input{    
+    border: 0;
+    flex-grow:2;
+}
+
+
+/* end search */
+
+
+
+.item a{
+    text-decoration: none;
+    color: white;
+
+}
+
+
+
+.item span{
+    display: block;
+} 
+
+.item-descripcion{
+    display: none !important; /* sin !important, tiene mas peso el selector .item span {...} */
+}
+
+
+.logo{
+    width: 20px;
+    height: auto;
+}
+
+
+
 
 .panel-categorias{
     /*
@@ -84,23 +158,6 @@ body{
 }
 
 
-.item{
-    margin-top: 5px;
-    width:100%;
-    text-align: center;
-    
-    }
-
-.item.active{
-    background-color: rgb(0, 145, 255);
-}
-
-
-.logo{
-    width: 20px;
-    height: auto;
-}
-
 
 /* Esta parte central se debe extraer y colocar en home.css */
 .carrousel, .descuentos{
@@ -144,3 +201,47 @@ footer{
 .copyright{
     margin: 5px auto;
 }
+
+
+
+/******* tablets   ***************/
+@media (min-width:600px) {
+/******************** header *********************/
+.item span{
+    display: block ;
+}
+.item-descripcion{
+     display: inline !important; 
+}
+
+.logo{
+    width: 30px;
+    height: auto;
+}
+
+/******************** main *********************/
+
+/******************** footer *********************/
+}
+
+
+
+/******* Desktop  ***************/
+@media (min-width:961px){
+    /******************** header *********************/
+    .item span{
+        display: inline ;
+    }
+    .item-descripcion{
+         display: inline !important; 
+    }
+
+
+    .logo{
+        width: 20px;
+        height: auto;
+    }
+    /******************** main *********************/
+    
+    /******************** footer *********************/
+    }
