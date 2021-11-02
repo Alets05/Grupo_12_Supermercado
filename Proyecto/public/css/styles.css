@@ -31,10 +31,15 @@ body{
     min-height: 100vh;
 }
 
-/******** Header*********/
+/**************** Header *******************/
 
 
-/* navbar */
+/********* navbar ***********/
+nav hr{ /* general a cualquier navbar */
+    width: 90%;
+}
+
+/*** menu mobile ***/
 .menu-mobile{
     list-style-type: none;
     position: fixed;
@@ -46,6 +51,7 @@ body{
     height:  var(--menu-mobile-height);
     width: 100vw;
     background-color: honeydew;  
+    align-items: center;
    
 }
 
@@ -62,6 +68,7 @@ body{
     display: block !important;  
 }
 
+/*** menu superior ***/
 .menu {
     list-style-type: none;
     display: flex;
@@ -69,16 +76,16 @@ body{
     flex-wrap: nowrap;
     justify-content: space-between;
     background-color: var(--menu-color);
-    height: 10%vh;
+    height: 8vh;
+    font-size: 1.2rem;
+    align-items: center;
 }
 
 .item{
     margin-top: 5px;
     width:100%;
     text-align: center;
-    flex-grow: 0;
-    
-    
+    flex-grow: 0;  
 }
 
 /* search */
@@ -95,23 +102,33 @@ body{
     justify-content: space-between;
     border-radius: 5px;
     background-color: white;
+    font-size: 1.2rem;
+    width: 40%vw;
+    margin-right: 5px;
   
 }
 
 .fa-search{
     padding: 1px;
     margin-right: 2px;
+    font-size: 1.2rem;
 }
 
 .btn-search{
     background-color: var(--menu-color);
     color: white; 
+    font-size: 1.2rem;
+    border-radius: 5px;
+    flex-grow: 1;
+    
     
 }
 
 .searchContainer input{    
     border: 0;
+    border-radius: 5px;
     flex-grow:2;
+    font-size: 1.2rem;
 }
 
 
@@ -129,8 +146,6 @@ body{
 
 }
 
-
-
 .item span{
     display: block;
 } 
@@ -139,17 +154,16 @@ body{
     display: none !important; /* sin !important, tiene mas peso el selector .item span {...} */
 }
 
-
 .logo{
     width: 20px;
     height: auto;
-    flex-grow: 0;
+   
     
 }
 
 
 
-
+/************ Menu lateral Fullscreen ************/
 .panel-categorias{
     /*
     Haciendo position : fixed y seteando top bottom left right ESTIRO el panel, ocupando .
@@ -167,6 +181,7 @@ body{
     background-color : var(--modal-secondary-color);
     transition: transform 0.3s ease;
     transform: translate(0, -100%);
+    
 
 }
 
@@ -183,10 +198,10 @@ body{
 }
 
 
-.menu-categorias a{
+.categoria{
     color: white;
     width: 100%;
-    padding: 2rem;
+    padding: 1.2rem;
     text-decoration: none;
     transition: all 0.4s ease;
 }
@@ -197,7 +212,7 @@ body{
 
 
 
-/* Esta parte central se debe extraer y colocar en home.css */
+/****************** Esta parte central se debe extraer y colocar en home.css ********************/
 
 .carrousel, .descuentos{
     height: 50vh;
@@ -219,7 +234,7 @@ body{
 
 /* Fin parte central */
 
-/******** Footer *********/
+/*************************** Footer **************************/
 footer{
     padding: 5px;
     padding-bottom: var(--menu-mobile-height); /* Es la medida del menu-mobile*/ 
@@ -241,6 +256,10 @@ footer{
 .copyright{
     margin: 5px auto;
 }
+
+
+
+/***************************** MEDIA QUERIES *****************************/
 
 
 

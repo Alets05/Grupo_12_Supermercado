@@ -6,8 +6,11 @@ hamburguerMenu
 const d = document;
 
 d.addEventListener('DOMContentLoaded', (e)=>{
+  d.addEventListener('click', (e)=>{
+      console.log(e.target)
+  })
    
-    hamburguerMenu(".fa-bars", ".panel-categorias");
+    hamburguerMenu(".activar-menu", ".panel-categorias");
 
 })
 
