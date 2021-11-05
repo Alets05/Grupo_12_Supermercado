@@ -17,3 +17,12 @@ app.get('/', (req,res)=>{
 app.listen(3000, ()=>{
     console.log(' Servidor activado en el puerto 3000')
 })
+
+
+app.get('/ProductCart', (req,res)=>{
+    res.sendFile(path.resolve(__dirname ,'views/ProductCart.html'));
+});
+
+app.get('/Register', (req,res)=>{
+    res.sendFile(path.resolve(__dirname ,'views/Register.html'));
+});
