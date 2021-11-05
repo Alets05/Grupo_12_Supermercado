@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesone -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- Google font (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles_ProductCart.css">
+
+    <title>DigiMart Carro de Compras</title>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu-mobile">            
+                <li class="item-mobile">  
+                    <a href="#"> 
+                        <span><i class="fas fa-bars">   </i>  </span> 
+                        <!-- <span class="item-descripcion">   Menú</span>          -->
+                    </a> 
+                </li>
+                <li class="item-mobile"> 
+                    <a href="#/carrito">
+                        <span><i class="fas fa-shopping-cart">  </i> </span> 
+                        <!-- <span class="item-descripcion"> Carrito</span>   -->
+                    </a> 
+                </li>
+                <li class="item-mobile">
+                    <a href="#/login">
+                        <span><i class="fas fa-user">  </i> </span>
+                        <!-- <span class="item-descripcion"> Sesion</span>    -->
+                    </a>  
+                </li>
+            </ul>
+        </nav>
+
+
+        <nav>
+            <ul class="menu">            
+                <li class="item item-desktop">  
+                    <a href="#"> 
+                        <span class="activar-menu" ><i class="fas fa-bars activar-menu">   </i>  </span> 
+                        <span class="item-descripcion activar-menu">   Menú</span>         
+                    </a> 
+                </li>
+                <li class="item"> 
+                    <img class="logo" src="images/MART2.png" alt="Logo">  
+                </li>
+                <li class="item item-search"> 
+                    <div class='searchContainer'>
+                        <input type="search"  placeholder=" Buscar...">
+                        <button type="submit" class="btn-search">
+                            <i class="fas fa-search" ></i> 
+                        </button>                           
+                    </div>
+                    
+                    <a>
+                    </a>
+                 
+                </li>
+                <li class="item item-desktop"> 
+                    <a href="#/carrito">
+                        <span><i class="fas fa-shopping-cart">  </i> </span> 
+                        <span class="item-descripcion"> Carrito</span>  
+                    </a> 
+                </li>
+                <li class="item item-desktop">
+                    <a href="#/login">
+                        <span> <i class="fas fa-user"> </i> </span>
+                        <span class="item-descripcion"> Sesion</span>   
+                    </a>  
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- menu mobile categorias -->
+        <aside class="panel-categorias">
+            <nav class='menu-categorias'>
+                <a href="#" class='categoria'> <i class="fas fa-arrow-left"> </i>    Volver</a>
+                <hr>
+                <span class='categoria'>Categorias</span>
+                
+                <a href="#/cat1" class='categoria'>cat1</a>
+                <a href="#/cat2" class='categoria'>cat2</a>
+                <a href="#/cat3" class='categoria'>cat3</a>
+                <a href="#/cat4" class='categoria'>cat4</a>
+                <a href="#/cat5" class='categoria'>cat5</a>
+                <hr>
+                <a href="#/contacto" class='categoria'> <i class="fas fa-paper-plane"> </i>    Contacto</a>
+                
+            </nav>
+        </aside>
+    
+
+    </header>
+
+    <main>
+        <h4>Tu carrito de compras contiene:</h4>
+    
+        <section class="Resumen_Compras">
+            <p class="ResumenCarrito">Total de Compras:</p>
+            <p class="ResumenCarrito">Ahorro por Descuentos:</p>
+            <h4 class="Subtotal">Subtotal:</h4>
+            <h6 class="IVA">Los precios ya incluyen IVA</h6>
+        <div class="IconosDePagos">
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+        </div>
+        <button class="BotonPagar" type="submit">Proceder al pago</button>  
+
+        </section>
+
+
+
+    <div class="ProductosCarrito">
+        <h5>Resumen de articulos:</h5>
+        <article>
+            <img src="images/Iphone.png" alt="Iphone" class="ProductCart_images">
+            <div class="articulo_carrito">
+                <p class="Precio">$950 dlls</p>
+                <h4 class="Descripcion">Iphone 13 Pro</h4>
+                <i class="far fa-trash-alt"></i>
+            </div>
+        </article>
+
+        <article>
+            <img src="images/Bocina.png" alt="Bocina" class="ProductCart_images">
+            <div class="articulo_carrito">
+                <p class="Precio">$25 dlls</p>
+                <h4 class="Descripcion">Bocina JBL Portable</h4>
+                <i class="far fa-trash-alt"></i>
+            </div>
+        </article>
+
+        <article>
+            <img src="images/Laptop.png" alt="Laptop" class="ProductCart_images">
+            <div class="articulo_carrito">
+                <p class="Precio">$1,200 dlls</p>
+                <h4 class="Descripcion">Laptop MacBook Air</h4>
+                <i class="far fa-trash-alt"></i>
+            </div>
+        </article>
+
+        <article>
+            <img src="images/Tomates.png" alt="Tomates" class="ProductCart_images">
+            <div class="articulo_carrito">
+                <p class="Precio">$2 dlls</p>
+                <h4 class="Descripcion">Tomates 1kg</h4>
+                <i class="far fa-trash-alt"></i>
+            </div>
+        </article>
+
+        <article>
+            <img src="images/Sprite.png" alt="Sprite" class="ProductCart_images">
+            <div class="articulo_carrito">
+                <p class="Precio">$1 dlls</p>
+                <h4 class="Descripcion">Refresco Sprite</h4>
+                <i class="far fa-trash-alt"></i>
+            </div>
+        </article>
+
+    </div>
+
+</main>
+    <footer>
+        <section class="sec-items"> 
+            <article>
+                <ul>
+                    <li> item 1</li>
+                    <li> item 2</li>
+                    <li> item 3</li>
+                </ul>
+            </article>
+    
+    
+            <article>
+                <ul>
+                    <li> item A</li>
+                    <li> item B</li>
+                    <li> item C</li>
+                </ul>
+            </article>
+    
+        </section>
+    
+        <article class="copyright">
+            Derechos reservados - 20XX
+        </article>
+    
+    </footer>    
+</body>
+
+
+
+
+</html>

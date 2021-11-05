@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- font awesone -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+        <!-- Google font (Roboto) -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    <title>DigiMart Register</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu-mobile">            
+                <li class="item-mobile">  
+                    <a href="#"> 
+                        <span><i class="fas fa-bars">   </i>  </span> 
+                        <!-- <span class="item-descripcion">   Menú</span>          -->
+                    </a> 
+                </li>
+                <li class="item-mobile"> 
+                    <a href="#/carrito">
+                        <span><i class="fas fa-shopping-cart">  </i> </span> 
+                        <!-- <span class="item-descripcion"> Carrito</span>   -->
+                    </a> 
+                </li>
+                <li class="item-mobile">
+                    <a href="#/login">
+                        <span><i class="fas fa-user">  </i> </span>
+                        <!-- <span class="item-descripcion"> Sesion</span>    -->
+                    </a>  
+                </li>
+            </ul>
+        </nav>
+
+
+        <nav>
+            <ul class="menu">            
+                <li class="item item-desktop">  
+                    <a href="#"> 
+                        <span class="activar-menu" ><i class="fas fa-bars activar-menu">   </i>  </span> 
+                        <span class="item-descripcion activar-menu">   Menú</span>         
+                    </a> 
+                </li>
+                <li class="item"> 
+                    <img class="logo" src="images/MART2.png" alt="Logo">  
+                </li>
+                <li class="item item-search"> 
+                    <div class='searchContainer'>
+                        <input type="search"  placeholder=" Buscar...">
+                        <button type="submit" class="btn-search">
+                            <i class="fas fa-search" ></i> 
+                        </button>                           
+                    </div>
+                    
+                    <a>
+                    </a>
+                 
+                </li>
+                <li class="item item-desktop"> 
+                    <a href="#/carrito">
+                        <span><i class="fas fa-shopping-cart">  </i> </span> 
+                        <span class="item-descripcion"> Carrito</span>  
+                    </a> 
+                </li>
+                <li class="item item-desktop">
+                    <a href="#/login">
+                        <span> <i class="fas fa-user"> </i> </span>
+                        <span class="item-descripcion"> Sesion</span>   
+                    </a>  
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- menu mobile categorias -->
+        <aside class="panel-categorias">
+            <nav class='menu-categorias'>
+                <a href="#" class='categoria'> <i class="fas fa-arrow-left"> </i>    Volver</a>
+                <hr>
+                <span class='categoria'>Categorias</span>
+                
+                <a href="#/cat1" class='categoria'>cat1</a>
+                <a href="#/cat2" class='categoria'>cat2</a>
+                <a href="#/cat3" class='categoria'>cat3</a>
+                <a href="#/cat4" class='categoria'>cat4</a>
+                <a href="#/cat5" class='categoria'>cat5</a>
+                <hr>
+                <a href="#/contacto" class='categoria'> <i class="fas fa-paper-plane"> </i>    Contacto</a>
+                
+            </nav>
+        </aside>
+    
+
+    </header>
+    
+    <main>
+
+    <h4 text-align:center>Crea tu cuenta:</h4>    
+
+        <form action="AltaDeUsuario"> 
+         <div>
+             <label for="Nombre y apellido">Nombre y Apellido:</label>
+             <input type="text" id="Nombre y apellido" name="Nombre_Apellido">
+         </div>
+             
+         <div>
+             <label for="Nombre de usuario">Nombre de Usuario:</label>
+             <input type="text"id="Nombre de usuario" name="Nombre_Usuario">
+         </div>
+     
+         <div>
+             <label for="Fecha de nacimiento">Fecha de Nacimiento:</label>
+             <input type="text"id="Fecha de Nacimiento" name="Fecha_Nacimiento">
+         </div>
+     
+         <div>
+             <label for="Domicilio">Domicilio:</label>
+             <input type="text"id="Domicilio" name="Domicilio_Address">
+         </div>
+    
+         <div>
+             <label for="Contrasenia">Contraseña:</label>
+             <input type="password" name="Contasenia" id="Password">
+         </div>
+     
+         <div>
+             <label for="Confirmacion_Contrasenia">Confirmar Contraseña:</label>
+             <input type="password" name="Confirmacion_Contasenia" id="Password_Confirmation">
+         
+             
+             
+         </div>
+         <h8>Al crear una cuenta, aceptas el Aviso de Privacidad, los Términos y Condiciones, así como el envío de noticias y promociones exclusivas. Puedes desactivar el envío de promociones desde el enlace incluido en cada correo.</h8> 
+
+     <button type="submit">Crear cuenta</button>
+     <button type="reset">Limpiar</button>
+       
+     
+        </form>
+     </main>
+
+
+
+     <footer>
+        <section class="sec-items"> 
+            <article>
+                <ul>
+                    <li> item 1</li>
+                    <li> item 2</li>
+                    <li> item 3</li>
+                </ul>
+            </article>
+    
+    
+            <article>
+                <ul>
+                    <li> item A</li>
+                    <li> item B</li>
+                    <li> item C</li>
+                </ul>
+            </article>
+    
+        </section>
+    
+        <article class="copyright">
+            Derechos reservados - 20XX
+        </article>
+    
+    </footer>  
+</body>
+</html>
+
+
+
+
+
+
