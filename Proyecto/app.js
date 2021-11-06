@@ -10,7 +10,7 @@ app.use(express.static(publicPath))
 
 
 app.get('/', (req,res)=>{
-    res.sendFile( path.resolve(__dirname,'views/base.html'));
+    res.sendFile( path.resolve(__dirname,'views/Home.html'));
 })
 
 

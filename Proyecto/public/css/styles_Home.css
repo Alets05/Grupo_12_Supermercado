@@ -1,0 +1,21 @@
+/****************** Esta parte central se debe extraer y colocar en home.css ********************/
+
+.carrousel, .descuentos{
+    height: 50vh;
+}
+
+.descuentos{
+    background-color: rgb(185, 216, 121);
+}
+
+.carrousel{
+    background-color: rgb(163, 118, 97);
+}
+
+
+.newsletter{
+    height: 10vh;
+}
+
+
+/* Fin parte central */

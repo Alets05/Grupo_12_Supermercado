@@ -12,7 +12,6 @@
 :root {
     /* Colores */
     --menu-color: rgb(113, 4, 157);
-    /* --menu-color : rgba(93, 191, 189,1); */
     --footer-color: rgb(55, 53, 51);
     --modal-secondary-color: rgba(55, 53, 51, 0.85);
     --GrisOscuro: #666;
@@ -214,27 +213,6 @@ nav hr{ /* general a cualquier navbar */
 
 
 
-/****************** Esta parte central se debe extraer y colocar en home.css ********************/
-
-.carrousel, .descuentos{
-    height: 50vh;
-}
-
-.descuentos{
-    background-color: rgb(185, 216, 121);
-}
-
-.carrousel{
-    background-color: rgb(163, 118, 97);
-}
-
-
-.newsletter{
-    height: 10vh;
-}
-
-
-/* Fin parte central */
 
 /*************************** Footer **************************/
 footer{
