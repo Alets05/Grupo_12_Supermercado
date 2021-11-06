@@ -19,7 +19,7 @@ app.listen(3000, ()=>{
 })
 
 
-app.get('/ProductCart', (req,res)=>{
+app.get('/carrito', (req,res)=>{
     res.sendFile(path.resolve(__dirname ,'views/ProductCart.html'));
 });
 
