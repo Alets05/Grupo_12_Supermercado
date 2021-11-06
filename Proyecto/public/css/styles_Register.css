@@ -208,6 +208,14 @@ nav hr{ /* general a cualquier navbar */
 }
 
 
+form{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+
+
 
 /*************************** Footer **************************/
 footer{

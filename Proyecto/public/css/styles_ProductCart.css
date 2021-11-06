@@ -220,36 +220,18 @@ main section {
 .Subtotal{
     margin-top: 1%;
 }
-.fa-cc-paypal{
+
+div .fab{
     /*background-color: black;*/
     border-radius: 1px;
     color:var(--GrisOscuro);
     font-size: 25px;
-    height: 40px;
+    height: 20px;
     margin: 5px 15px 20px 0px;
     padding: 2px;
     width: 10px;
 }
-.fa-cc-mastercard{
-    /*background-color: black;*/
-    border-radius: 1px;
-    color:var(--GrisOscuro);
-    font-size: 25px;
-    height: 40px;
-    margin: 5px 15px 20px 0px;
-    padding: 2px;
-    width: 10px;
-}
-.fa-cc-amex{
-    /*background-color: black;*/
-    border-radius: 1px;
-    color:var(--GrisOscuro);
-    font-size: 25px;
-    height: 40px;
-    margin: 5px 20px 20px 0px;
-    padding: 2px;
-    width: 10px;
-}
+
 .BotonPagar{
     background-color:rgb(41, 108, 252);
     border-radius: 1px;
@@ -261,47 +243,46 @@ main section {
     padding: 2px;
     width: 90px;
 }
-
+/*
 article div.articulo_carrito{
     width: 100%;
     border-bottom: 20px solid #ebebeb;
     padding: 20px;
-}
+}*/
 
-
-/*************************** Footer **************************/
-footer{
-    padding: 5px;
-    padding-bottom: var(--menu-mobile-height); /* Es la medida del menu-mobile*/ 
-    order: 1;
-    text-align: center;
-    background-color: var(--footer-color);
-    color:white;   
-    margin-top: auto;
-}
-
-.sec-items{
+.ProductosCarrito article{
     display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-evenly;
-
+    
+}
+.ProductosCarrito{
+    display: flex;
+    flex-wrap: wrap;  
+}
+.ProductCart_images{
+    width:50%;
+    height:auto;
 }
 
-.copyright{
-    margin: 5px auto;
-}
 
 
 
 /***************************** MEDIA QUERIES *****************************/
 
 
-
+/*
 /******* tablets   ***************/
 @media (min-width:600px) {
+    .ProductosCarrito article{
+        width: 50%;
+    }
+
+@media (max-width:961px) {
+        .ProductosCarrito article{
+            width: 25%;
+    }}
+
 /******************** header *********************/
-.menu-mobile{
+/*.menu-mobile{
     display: none;
 }
 
@@ -321,6 +302,7 @@ footer{
     width: 30px;
     height: auto;
 }
+*/
 
 /******************** main *********************/
 
@@ -348,3 +330,27 @@ footer{
     
     /******************** footer *********************/
     }
+
+
+    /*************************** Footer **************************/
+footer{
+    padding: 5px;
+    padding-bottom: var(--menu-mobile-height); /* Es la medida del menu-mobile*/ 
+    order: 1;
+    text-align: center;
+    background-color: var(--footer-color);
+    color:white;   
+    margin-top: auto;
+}
+
+.sec-items{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+
+.copyright{
+    margin: 5px auto;
+}
