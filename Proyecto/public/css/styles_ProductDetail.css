@@ -8,8 +8,13 @@
     --GrisClaro: #ebebeb;
     --Verde: #39b54a;
 
+
+    --font-color--dark-gray: rgb(55, 53, 51);
+
     --font-color--dark: rgb(255, 255, 255);
     --font-color--dark-destacado: rgb(100, 255, 255);
+
+    --red-color: rgb(235, 34, 34);
 
 
     /* Variables */
@@ -88,11 +93,19 @@ main{
 
 .quantity-plus , .quantity-minus {
     border-radius: 50%;
-    color:  var(--font-color--dark);
+    color:  var(--font-color--dark-gray);
     background-color: transparent;
     padding: 5px;
 }
 
+.quantity-plus{
+    background-color: var(--font-color--dark-destacado);
+    /* color: ; font */
+}
+
+.quantity-minus{
+    background-color: var(--red-color);
+}
 
 .content-body-dc{
     display: flex;
@@ -192,9 +205,9 @@ justify-content: space-between;
 
 .add-card-btn{
     font-size: 1.7rem;
-    background-color: rgba(0, 210, 238, 0.8);
+    background-color: var(--font-color--dark-destacado);
     border-radius: 20px;
-    color: var(--font-color--dark);
+    color: var(--font-color--dark-gray);
     padding: 10px;
 }
 

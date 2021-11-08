@@ -1,0 +1,121 @@
+/* Variables */
+:root {
+    /* Colores */
+    --menu-color: rgb(113, 4, 157);
+    --footer-color: rgb(55, 53, 51);
+    --modal-secondary-color: rgba(55, 53, 51, 0.85);
+    --GrisOscuro: #666;
+    --GrisClaro: #ebebeb;
+    --Verde: #39b54a;
+
+
+    --font-color--dark-gray: rgb(55, 53, 51);
+
+    --font-color--dark: rgb(255, 255, 255);
+    --font-color--dark-destacado: rgb(100, 255, 255);
+
+    --red-color: rgb(235, 34, 34);
+
+
+    /* Variables */
+    --menu-mobile-height : 15vh;
+  }
+
+
+/******************* header ************************/
+/******************* main **************************/
+main{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+fieldset{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;   
+}
+
+legend{
+    font-size: 1.5rem;
+    
+}
+
+.field-container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.field-container i{
+    font-size: 1.5rem;
+}
+
+input{
+    width: 100%;
+    padding: 5px; 
+    margin-left: 5px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+input:invalid {
+    border: 2px solid red;
+    border-radius: 5px;
+  }
+
+input[type="submit"] {
+    border-radius: 10px;
+    background-color: var(--font-color--dark-destacado);
+    border-color: transparent;
+    color: var(--font-color--dark-gray);
+}
+
+.links-options{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.links-options a{
+    margin-top: 5px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--font-color--dark-destacado);
+}
+
+
+
+/******************* footer **************************/
+
+
+@media (min-width:600px){
+/******************* header ************************/
+/******************* main **************************/
+form{
+    width: 50%;
+}
+/******************* footer **************************/
+}
+
+
+@media (min-width:961px){
+/******************* header ************************/
+/******************* main **************************/
+/******************* footer **************************/
+}

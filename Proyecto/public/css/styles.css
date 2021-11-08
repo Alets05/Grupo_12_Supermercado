@@ -18,6 +18,16 @@
     --GrisClaro: #ebebeb;
     --Verde: #39b54a;
 
+
+    --font-color--dark-gray: rgb(55, 53, 51);
+
+    --font-color--dark: rgb(255, 255, 255);
+    --font-color--dark-destacado: rgb(100, 255, 255);
+
+    --red-color: rgb(235, 34, 34);
+
+
+
     /* Variables */
     --menu-mobile-height : 15vh;
   }

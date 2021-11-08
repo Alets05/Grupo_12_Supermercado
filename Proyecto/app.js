@@ -14,15 +14,23 @@ app.get('/', (req,res)=>{
 })
 
 
-app.listen(3000, ()=>{
-    console.log(' Servidor activado en el puerto 3000')
-})
 
 
 app.get('/carrito', (req,res)=>{
     res.sendFile(path.resolve(__dirname ,'views/ProductCart.html'));
 });
 
+
 app.get('/detalles', (req,res)=>{
     res.sendFile(path.resolve(__dirname ,'views/ProductDetail.html'));
 });
+
+app.get('/login', (req,res)=>{
+    res.sendFile(path.resolve(__dirname ,'views/Login_prov.html'));
+});
+
+
+app.listen(3000, ()=>{
+    console.log(' Servidor activado en el puerto 3000')
+})
+
