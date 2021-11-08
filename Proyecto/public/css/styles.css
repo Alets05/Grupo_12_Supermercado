@@ -53,6 +53,7 @@ nav hr{ /* general a cualquier navbar */
     width: 100vw;
     background-color: honeydew;  
     align-items: center;
+    z-index: 999;
    
 }
 
@@ -211,6 +212,41 @@ nav hr{ /* general a cualquier navbar */
     background-color: var(--menu-color);
 }
 
+
+
+
+
+
+/**************************** Main ************************************/
+.section-separador{
+    /* background-color: gray; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.text-separador{
+    display: flex;
+     justify-content: space-between;
+    margin-left: 5%;
+    font-size: 1.5rem;
+    opacity: 0.5; 
+}
+
+.section-separador i{
+margin-right: 5px;
+}
+
+.hr-section{
+    color: var(--font-color--dark);
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5%;
+    height: 2px;
+    opacity: 0.5;
+    /* border:2px; */
+}
 
 
 

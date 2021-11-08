@@ -9,6 +9,9 @@
     --GrisClaro: #ebebeb;
     --Verde: #39b54a;
 
+
+    --font-color--dark: rgb(255, 255, 255);
+
     /* Variables */
     --menu-mobile-height : 15vh;
   }
@@ -18,7 +21,7 @@
 
 /****************** Esta parte central se debe extraer y colocar en home.css ********************/
 main{
-
+width: 90%;
 margin: auto;
 }
 
@@ -26,35 +29,6 @@ margin: auto;
     /* height: 50vh; */
 }
 
-.section-separador{
-    /* background-color: gray; */
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 10px;
-}
-
-.text-separador{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 5%;
-    font-size: 1.5rem;
-    opacity: 0.5;
-}
-
-.section-separador i{
-margin-right: 5px;
-}
-
-.hr-section{
-    color: white;
-    width: 100%;
-    margin-left: 5px;
-    margin-right: 5%;
-    height: 2px;
-    opacity: 0.5;
-    /* border:2px; */
-}
 
 
 
@@ -83,6 +57,7 @@ margin-right: 5px;
 .product-card:hover{
     transform: scale(1.05);
 }
+
 
 .product-card img{
     width: 90%;
@@ -130,7 +105,7 @@ justify-content: space-between;
     font-size: 1.7rem;
     background-color: rgba(0, 210, 238, 0.8);
     border-radius: 20px;
-    color: white;
+    color: var(--font-color--dark);
     padding: 10px;
 }
 
@@ -147,7 +122,7 @@ justify-content: space-between;
 .newsletter{
     width:100vw;
     background-color: var(--menu-color);
-    color: rgba(238, 232, 232, 0.974);
+    color: var(--font-color--dark);
 }
 
 .newsletter p{
@@ -164,6 +139,7 @@ justify-content: space-between;
     justify-content: start;
     padding-bottom: 10px;
     margin-bottom: 10px;
+   
 }
 
 .form-newsletter label{
@@ -176,7 +152,7 @@ justify-content: space-between;
     /* margin:auto; */
     /* background-color: transparent; */
     background-image: url("/img/3880-gris-oscuro.jpg") ;
-    color: white;
+    color: var(--font-color--dark);
     margin-left: 10px;
 }
 
@@ -214,11 +190,13 @@ justify-content: space-between;
 
 .newsletter{
     padding-left:20px;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 .form-newsletter{
     flex-direction: row;
-    
+}
+.form-newsletter input{
+    width: 40%;
 }
 /******************** footer *********************/
 

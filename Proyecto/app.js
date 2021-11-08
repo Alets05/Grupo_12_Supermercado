@@ -23,6 +23,6 @@ app.get('/carrito', (req,res)=>{
     res.sendFile(path.resolve(__dirname ,'views/ProductCart.html'));
 });
 
-app.get('/Register', (req,res)=>{
-    res.sendFile(path.resolve(__dirname ,'views/Register.html'));
+app.get('/detalles', (req,res)=>{
+    res.sendFile(path.resolve(__dirname ,'views/ProductDetail.html'));
 });
