@@ -157,10 +157,15 @@ justify-content: space-between;
     width:90%;
     /* margin:auto; */
     /* background-color: transparent; */
-    background-image: url("/img/3880-gris-oscuro.jpg") ;
+    background-image: url("/images/3880-gris-oscuro.jpg") ;
     color: var(--font-color--dark);
     margin-left: 10px;
 }
+
+input:invalid {
+    border: 2px solid red;
+    border-radius: 5px;
+  }
 
 
 /* Fin parte central */
