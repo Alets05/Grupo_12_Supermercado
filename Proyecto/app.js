@@ -30,6 +30,11 @@ app.get('/login', (req,res)=>{
 });
 
 
+app.post('/login', (req,res)=>{
+    res.sendFile(path.resolve(__dirname ,'views/Home.html'));
+});
+
+
 app.listen(3000, ()=>{
     console.log(' Servidor activado en el puerto 3000')
 })

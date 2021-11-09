@@ -235,6 +235,11 @@ justify-content: space-between;
     width: 50%;
 }
 
+.content-body-dc{
+    margin-left: 20px;
+    width:40%;
+}
+
 
 .product-card{
     width: 40%;
