@@ -2,18 +2,20 @@
 /* Variables */
 :root {
     /* Colores */
-    --menu-color: rgb(113, 4, 157);
+
+    /* Dark Mode */
+    --menu-color: rgb(17, 238, 238);
     --footer-color: rgb(55, 53, 51);
     --modal-secondary-color: rgba(55, 53, 51, 0.85);
+    
+    --font-color--dark-gray: rgb(55, 53, 51);
+    --font-color--dark: rgba(55, 53, 51, 0.89);
+    --font-color--dark-destacado: rgb(17, 238, 238);
+
     --GrisOscuro: #666;
     --GrisClaro: #ebebeb;
     --Verde: #39b54a;
 
-
-    --font-color--dark-gray: rgb(55, 53, 51);
-
-    --font-color--dark: rgb(255, 255, 255);
-    --font-color--dark-destacado: rgb(100, 255, 255);
 
     --red-color: rgb(235, 34, 34);
 
@@ -31,10 +33,105 @@ width: 90%;
 margin: auto;
 }
 
-.carrousel, .descuentos{
-    /* height: 50vh; */
+.carousel-container {
+    width:90vw;
+    height: 30vh;
+    margin: 10px auto;
+    position: relative;
+    
+  }
+
+
+
+  /* Imagenes carousel escondida por defecto */
+.mySlides {
+    width:90vw;
+    height: 30vh;
+    margin: auto;
+    display: none;
+    background-color:rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    text-align: center;
+  }
+
+.mySlides img{
+    max-height: 85%;
 }
 
+  /* animacion*/
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    animation-name: fade;
+    animation-duration:2s;
+    animation-direction: alternate;
+}
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+
+.prev, .next {
+position: absolute;
+top: 50%;
+width: auto;
+margin-top: -20px;
+padding: 20px;
+cursor: pointer;
+color: white;
+font-size: 15px;
+/* font-weight: bold; */
+transition: 0.5s ease;
+border-radius: 0 5px 5px 0;
+/* user-select: none; */
+}
+
+
+/* "next button" a la derecha */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+
+.prev:hover, .next:hover {
+background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.title-slide{
+    color: var(--menu-color);
+    font-size: 18px;
+    padding: 8px; 
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    text-align: center;
+  }
+
+
+/* puntos indicadores */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
 
 
 
@@ -49,13 +146,11 @@ margin: auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    border:solid;
-    border-width: 4px;
+    border: 3px solid;
     border-color: rgba(100, 100, 100, 0.7);
     border-radius: 5px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    transition: all 0.7s ease;
+    margin: 20px 5px;
+    transition: transform 0.7s ease;
     /* border-width: 5px; */
 }
 
@@ -109,7 +204,7 @@ justify-content: space-between;
 
 .add-card-btn{
     font-size: 1.7rem;
-    background-color: var(--font-color--dark-destacado);
+    background-color: var(--menu-color);
     border-radius: 20px;
     color: var(--font-color--dark-gray);
     padding: 10px;
@@ -120,15 +215,17 @@ justify-content: space-between;
 }
 
 
-.carrousel{
-    /* background-color: rgb(163, 118, 97); */
-}
+
+
+
+
 
 
 .newsletter{
     width:100vw;
     background-color: var(--menu-color);
     color: var(--font-color--dark);
+    margin-bottom: 10px;
 }
 
 .newsletter p{
@@ -144,7 +241,7 @@ justify-content: space-between;
     padding-left: 15px;
     justify-content: start;
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
    
 }
 
@@ -160,7 +257,7 @@ justify-content: space-between;
     background-image: url("/images/3880-gris-oscuro.jpg") ;
     color: var(--font-color--dark);
     margin-left: 10px;
-}
+    }
 
 input:invalid {
     border: 2px solid red;

@@ -21,7 +21,8 @@
 
     --font-color--dark-gray: rgb(55, 53, 51);
 
-    --font-color--dark: rgb(255, 255, 255);
+    /* --font-color--dark: rgb(255, 255, 255); */
+    --font-color--dark:  rgb(55, 53, 51);
     --font-color--dark-destacado: rgb(100, 255, 255);
 
     --red-color: rgb(235, 34, 34);
@@ -38,8 +39,11 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url("/images/3880-gris-oscuro.jpg") ;
+    background-image: url("/images/3880-gris-oscuro.jpg")  ;
+    background-repeat: repeat;
+   
     color: white;
+    /* color:    rgb(55, 53, 51); */
 }
 
 /**************** Header *******************/
@@ -128,7 +132,7 @@ nav hr{ /* general a cualquier navbar */
 
 .btn-search{
     background-color: var(--menu-color);
-    color: white; 
+    color: var(--font-color--dark);
     font-size: 1.2rem;
     border-radius: 5px;
     flex-grow: 1;
@@ -154,7 +158,7 @@ nav hr{ /* general a cualquier navbar */
 
 .item a{
     text-decoration: none;
-    color: white;
+    color:  var(--font-color--dark);
 
 }
 
@@ -273,6 +277,7 @@ footer{
     background-color: var(--footer-color);
     color:white;   
     margin-top: auto;
+   
 }
 
 .sec-items{

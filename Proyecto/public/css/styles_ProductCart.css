@@ -1,4 +1,29 @@
+/* Variables */
+:root {
+    /* Colores */
+    
+    /* Dark Mode */
+    --menu-color: rgb(17, 238, 238);
+    --footer-color: rgb(55, 53, 51);
+    --modal-secondary-color: rgba(55, 53, 51, 0.85);
+    
+    --font-color--dark-gray: rgb(55, 53, 51);
+    --font-color--dark: rgba(55, 53, 51, 0.89);
+    --font-color--dark-destacado: rgb(17, 238, 238);
 
+    --GrisOscuro: #666;
+    --GrisClaro: #ebebeb;
+    --Verde: #39b54a;
+
+
+    --red-color: rgb(235, 34, 34);
+
+
+    /* Variables */
+    --menu-mobile-height : 15vh;
+  }
+
+  
 main section {
     /* background-color:ghostwhite; */
     border-color: black;

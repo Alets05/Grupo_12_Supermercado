@@ -1,18 +1,20 @@
 /* Variables */
 :root {
     /* Colores */
-    --menu-color: rgb(113, 4, 157);
+    
+    /* Dark Mode */
+    --menu-color: rgb(17, 238, 238);
     --footer-color: rgb(55, 53, 51);
     --modal-secondary-color: rgba(55, 53, 51, 0.85);
+    
+    --font-color--dark-gray: rgb(55, 53, 51);
+    --font-color--dark: rgba(55, 53, 51, 0.89);
+    --font-color--dark-destacado: rgb(17, 238, 238);
+
     --GrisOscuro: #666;
     --GrisClaro: #ebebeb;
     --Verde: #39b54a;
 
-
-    --font-color--dark-gray: rgb(55, 53, 51);
-
-    --font-color--dark: rgb(255, 255, 255);
-    --font-color--dark-destacado: rgb(100, 255, 255);
 
     --red-color: rgb(235, 34, 34);
 
@@ -63,11 +65,20 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* margin-bottom: 10px; */
+    background-color: rgb(42, 169, 169);
 }
+
+
+.img-body-dc{
+max-width: 90%;
+margin:auto;
+}
+
 
 .body-dc img{
     width: 100%;
-    height: auto;
+    max-height: auto;
     margin: auto;
 }
 
@@ -229,13 +240,24 @@ justify-content: space-between;
 /******************* main **************************/
 .body-dc{
     flex-direction: row;
+    /* flex-wrap: nowrap; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.img-body-dc{
+    width: 40%;
+    /* margin:auto; */
+    background-color: lawngreen;
 }
 
 .body-dc img{
-    width: 50%;
+    width: 100%;
 }
 
 .content-body-dc{
+    background-color: lightcoral;
     margin-left: 20px;
     width:40%;
 }
@@ -257,14 +279,6 @@ justify-content: space-between;
 @media (min-width:961px){
 /******************* header ************************/
 /******************* main **************************/
-
-.body-dc{
-    flex-direction: row;
-}
-
-.body-dc img{
-    width: 50%;
-}
 
 
 .product-card{
