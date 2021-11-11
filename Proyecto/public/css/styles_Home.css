@@ -144,7 +144,7 @@ background-color: rgba(0,0,0,0.8);
 
 .product-card{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     border: 3px solid;
     border-color: rgba(100, 100, 100, 0.7);
@@ -159,9 +159,17 @@ background-color: rgba(0,0,0,0.8);
     transform: scale(1.05);
 }
 
+.img-card{
+    height: 50%;
+    /* width: 40%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
 
 .product-card img{
-    width: 90%;
+    width: 80%;
     height: auto;
     margin: auto;
 }
@@ -169,12 +177,15 @@ background-color: rgba(0,0,0,0.8);
 .product-card article{
     display: flex;
     flex-direction: column;
+    
     text-align: center;
 }
 
 .body-card{
 display: flex;
 justify-content: space-between;
+
+margin-bottom: 10px;
 }
 
 .title-card{
@@ -203,11 +214,12 @@ justify-content: space-between;
 }
 
 .add-card-btn{
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     background-color: var(--menu-color);
     border-radius: 20px;
     color: var(--font-color--dark-gray);
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .add-card-btn p{

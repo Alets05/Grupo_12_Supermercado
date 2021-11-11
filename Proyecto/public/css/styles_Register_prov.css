@@ -35,6 +35,12 @@ main{
     align-items: center;
     }
 
+.title-form{
+    font-size: 2rem;
+    margin: 10px 0;
+    padding: 3px;
+}
+
     form{
         display: flex;
         flex-direction: column;
@@ -74,6 +80,8 @@ input{
     background-color: transparent;
     border-color: transparent;
     border-radius: 5px;
+    border:none;
+    border-bottom : 1px solid var(--GrisOscuro);
 }
 
 input:invalid {
@@ -81,11 +89,12 @@ input:invalid {
     border-radius: 5px;
   }
 
-input[type="submit"] {
+input[type="submit"],input[type="reset"] {
     border-radius: 10px;
     background-color: var(--menu-color);
     border-color: transparent;
     color: var(--font-color--dark-gray);
+    margin-bottom: 20px;
 }
 
 .links-options{

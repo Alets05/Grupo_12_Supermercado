@@ -73,6 +73,8 @@ input{
     background-color: transparent;
     border-color: transparent;
     border-radius: 5px;
+    border:none;
+    border-bottom : 1px solid var(--GrisOscuro);
 }
 
 input:invalid {

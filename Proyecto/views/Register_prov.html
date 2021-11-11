@@ -101,7 +101,9 @@
   
     <main>
 
-    <h4 text-align:center>Crea tu cuenta:</h4>    
+        <div class="title-form">
+            <p> Formulario de Registro</p>    
+        </div>
 
         <form action="AltaDeUsuario"> 
             <fieldset> 
@@ -115,6 +117,7 @@
             <fieldset> 
             <legend>Nombre de Usuario:</legend> 
                 <div class="field-container">
+                    <i class="fas fa-user-tag">   </i>
                     <input type="text"id="Nombre de usuario" name="Nombre_Usuario">
                 </div>
             </fieldset>
@@ -124,6 +127,7 @@
             <fieldset> 
                <legend>Fecha de Nacimiento:</legend> 
                 <div class="field-container">
+                    <i class="fas fa-calendar">   </i> 
                     <input type="text"id="Fecha de Nacimiento" name="Fecha_Nacimiento">
                 </div>
             </fieldset>
@@ -132,13 +136,23 @@
             <fieldset> 
                 <legend>Domicilio:</legend>    
                 <div class="field-container">
+                    <i class="fas fa-map-marker">   </i> 
                     <input type="text"id="Domicilio" name="Domicilio_Address">
                 </div>
+            </fieldset>
+
+            <fieldset> 
+                <legend>Email:</legend>    
+                <div class="field-container">
+                    <i class="fas fa-envelope">   </i> 
+                    <input type="email" name="email" id="email">
+                </div class="field-container">
             </fieldset>
     
             <fieldset> 
                 <legend>Contraseña:</legend>    
                 <div class="field-container">
+                    <i class="fas fa-lock">   </i> 
                     <input type="password" name="Contasenia" id="Password">
                 </div class="field-container">
             </fieldset>
@@ -146,14 +160,15 @@
             <fieldset> 
                 <legend>Confirmar Contraseña:</legend> 
                 <div class="field-container">
+                    <i class="fas fa-lock">   </i> 
                     <input type="password" name="Confirmacion_Contasenia" id="Password_Confirmation">
                </div>
             </fieldset>
     
          <h8>Al crear una cuenta, aceptas el Aviso de Privacidad, los Términos y Condiciones, así como el envío de noticias y promociones exclusivas. Puedes desactivar el envío de promociones desde el enlace incluido en cada correo.</h8> 
 
-     <button type="submit">Crear cuenta</button>
-     <button type="reset">Limpiar</button>
+     <input type="submit" value="Crear Cuenta">
+     <input type="reset" value="Limpiar">
        
      
         </form>
@@ -200,6 +215,11 @@
     
  
 </body>
+
+
+<!-- Scripts -->
+<script type="module" src="js/base.js"></script>
+
 </html>
 
 
