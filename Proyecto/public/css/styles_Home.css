@@ -18,6 +18,7 @@
 
 
     --red-color: rgb(235, 34, 34);
+    --white-color:#FFF;
 
 
     /* Variables */
@@ -25,9 +26,6 @@
   }
 
 
-
-
-/****************** Esta parte central se debe extraer y colocar en home.css ********************/
 main{
 width: 90%;
 margin: auto;
@@ -159,19 +157,10 @@ background-color: rgba(0,0,0,0.8);
     transform: scale(1.05);
 }
 
-.img-card{
-    height: 50%;
-    /* width: 40%; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:auto;
-}
 
 .product-card img{
-    width: 80%;
+    width: 100%;
     height: auto;
-    margin: auto;
 }
 
 .product-card article{
@@ -184,7 +173,6 @@ background-color: rgba(0,0,0,0.8);
 .body-card{
 display: flex;
 justify-content: space-between;
-
 margin-bottom: 10px;
 }
 
@@ -267,7 +255,7 @@ margin-bottom: 10px;
     /* margin:auto; */
     /* background-color: transparent; */
     background-image: url("/images/3880-gris-oscuro.jpg") ;
-    color: var(--font-color--dark);
+    color: var(--white-color);
     margin-left: 10px;
     }
 
