@@ -18,30 +18,30 @@
 
 </head>
 <body>
-
     <header>
         <nav>
             <ul class="menu-mobile">            
                 <li class="item-mobile">  
                     <a href="#"> 
-                        <span class="activar-menu"> <i class="fas fa-bars activar-menu">   </i>  </span> 
+                        <span><i class="fas fa-bars">   </i>  </span> 
                         <!-- <span class="item-descripcion">   Menú</span>          -->
                     </a> 
                 </li>
                 <li class="item-mobile"> 
-                    <a href="/carrito">
+                    <a href="#/carrito">
                         <span><i class="fas fa-shopping-cart">  </i> </span> 
                         <!-- <span class="item-descripcion"> Carrito</span>   -->
                     </a> 
                 </li>
                 <li class="item-mobile">
-                    <a href="/login">
+                    <a href="#/login">
                         <span><i class="fas fa-user">  </i> </span>
                         <!-- <span class="item-descripcion"> Sesion</span>    -->
                     </a>  
                 </li>
             </ul>
         </nav>
+
 
         <nav>
             <ul class="menu">            
@@ -67,13 +67,13 @@
                  
                 </li>
                 <li class="item item-desktop"> 
-                    <a href="/carrito">
+                    <a href="#/carrito">
                         <span><i class="fas fa-shopping-cart">  </i> </span> 
                         <span class="item-descripcion"> Carrito</span>  
                     </a> 
                 </li>
                 <li class="item item-desktop">
-                    <a href="/login">
+                    <a href="#/login">
                         <span> <i class="fas fa-user"> </i> </span>
                         <span class="item-descripcion"> Sesion</span>   
                     </a>  
@@ -81,10 +81,11 @@
             </ul>
         </nav>
 
+
         <!-- menu mobile categorias -->
         <aside class="panel-categorias">
             <nav class='menu-categorias'>
-                <a href="/" class='categoria'> <i class="fas fa-arrow-left"> </i>    Volver</a>
+                <a href="#" class='categoria'> <i class="fas fa-arrow-left"> </i>    Volver</a>
                 <hr>
                 <span class='categoria'>Categorias</span>
                 
@@ -99,7 +100,9 @@
             </nav>
         </aside>
     
+
     </header>
+
     <main>
         <h4>Tu carrito de compras contiene:</h4>
     
@@ -118,9 +121,8 @@
         </section>
 
 
-
         <h5>Resumen de articulos:</h5>
-         <div class="ProductosCarrito">
+    <div class="ProductosCarrito">
         <article>
             <img src="images/Iphone.png" alt="Iphone" class="ProductCart_images">
             <div class="articulo_carrito">
@@ -149,6 +151,7 @@
         </article>
 
         <article>
+ 
             <img src="images/Tomates.png" alt="Tomates" class="ProductCart_images">
             <div class="articulo_carrito">
                 <p class="Precio">$2 dlls</p>
@@ -168,40 +171,47 @@
 
     </div>
 
-    </main>
-
-
-
-    <footer>
-        <section class="sec-items"> 
-            <article>
-                <ul>
-                    <li> item 1</li>
-                    <li> item 2</li>
-                    <li> item 3</li>
-                </ul>
-            </article>
-    
-    
-            <article>
-                <ul>
-                    <li> item A</li>
-                    <li> item B</li>
-                    <li> item C</li>
-                </ul>
-            </article>
-    
-        </section>
-    
-        <article class="copyright">
-            Derechos reservados - 20XX
+</main>
+<footer>
+    <section class="sec-items"> 
+        <article>
+            <ul>
+                <li><a href="#/atencion-cliente">Atención al cliente</a> </li>
+                <li><a href="#/preguntas-frecuentes">Preguntas Frecuentes</a> </li>
+                <li><a href="#/locales"> Nuestros Locales</a> </li>
+            </ul>
         </article>
-    
-    </footer>    
+
+
+        <article>
+            <ul>
+                <li> <button class="baja-newsletter"> Baja Newsletter</button></li>
+                <li><a href="#/trabaja-nosotros">Trabajá con Nosotros</a> </li>
+                <li><a href="#/terminos-condiciones">Términos y condiciones</a> </li>
+            </ul>
+        </article>
+
+
+        
+        <article>
+            <h3> Síguenos!</h3>
+            <ul class="redes">
+                <li><a href="#/whatsapp"><i class="fab fa-whatsapp"></i>  </a> </li>
+                <li><a href="#/facebook"><i class="fab fa-facebook"></i>  </a> </li>
+                <li><a href="#/instagram"><i class="fab fa-instagram"></i> </a> </li>
+            </ul>
+        </article>
+
+    </section>
+
+    <article class="copyright">
+        Derechos reservados - 20XX
+    </article>
+
+</footer>  
 </body>
 
-<!-- Scripts -->
-<script type="module" src="js/base.js"></script>
+
 
 
 </html>

@@ -23,15 +23,26 @@
     --menu-mobile-height : 15vh;
   }
 
+  main{
+    width: 90%;
+    margin: 0 auto;
+}
+
+
   
 main section {
     /* background-color:ghostwhite; */
     border-color: black;
-    margin-left: 200px;
-    margin-block: 3%;
+    /* margin-left: 200px; */
+    /* margin-block: 3%; */
     width: 100%;
     color: whitesmoke;
     
+
+    
+}
+h5{
+    margin-bottom: 10px;
 }
 .Subtotal{
     margin-top: 1%;
@@ -40,7 +51,7 @@ main section {
 div .fab{
     /*background-color: black;*/
     border-radius: 1px;
-    color:var(--GrisOscuro);
+    color:darkturquoise;
     font-size: 25px;
     height: 20px;
     margin: 5px 15px 20px 0px;
@@ -59,38 +70,57 @@ div .fab{
     padding: 2px;
     width: 90px;
 }
-/*
-article div.articulo_carrito{
-    width: 100%;
-    border-bottom: 20px solid #ebebeb;
-    padding: 20px;
-}*/
+
+article{
+    width: 100%;    
+    border-top: 2px solid #ebebeb;
+    padding: 10px 0px;
+    
+    /* margin-left: 20px; */
+}
 
 .ProductosCarrito article{
     display: flex;
-    
+    justify-content: space-around;
+    transition: all 0.7s ease; 
+    align-items: center;
+    margin-bottom: 10px;
 }
 .ProductosCarrito{
     display: flex;
-    flex-wrap: wrap; 
-
+    flex-wrap: nowrap; 
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    /* background-color: red; */
+    
 }
-
-
-.ProductosCarrito article{
-    transition: all 0.7s ease;     
-}
-
 .ProductosCarrito article:hover{
+    transform: scale(1.05);
+}
+.ProductCart_images{
+    width:20%;
+    /* margin-left: 40px; */
+    /* margin-right: 70%; */
+    /* margin-bottom: 15px; */
+    /* margin-top: 15px; */
+    height:auto; 
+    /* box-decoration-break: var(--font-color--dark-gray); */
+    /* background-color: orange; */
+}
+div.articulo_carrito{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     
-    transform: scale(1.2);
-    
+
 }
 
-.ProductCart_images{
-    width:50%;
-    height:auto;
-}
+
+
 
 
 
@@ -106,8 +136,17 @@ article div.articulo_carrito{
 
 /******************** main *********************/
      .ProductosCarrito article{
-         width: 50%;
+         /* width: 50%; */
      }
+     .articulo_carrito{
+         flex-direction: row;
+         /* background-color: red; */
+         flex-wrap: wrap;
+     }
+     .Precio{
+         /* background-color: aqua; */
+     }
+
 
 /******************** footer *********************/
 } 
@@ -119,7 +158,7 @@ article div.articulo_carrito{
 
     /******************** main *********************/
     .ProductosCarrito article{
-        width: 25%;
+        /* width: 25%; */
     }
 
     /******************** footer *********************/
