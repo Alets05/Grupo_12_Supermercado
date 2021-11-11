@@ -71,21 +71,7 @@ div .fab{
     width: 90px;
 }
 
-article{
-    width: 100%;    
-    border-top: 2px solid #ebebeb;
-    padding: 10px 0px;
-    
-    /* margin-left: 20px; */
-}
 
-.ProductosCarrito article{
-    display: flex;
-    justify-content: space-around;
-    transition: all 0.7s ease; 
-    align-items: center;
-    margin-bottom: 10px;
-}
 .ProductosCarrito{
     display: flex;
     flex-wrap: nowrap; 
@@ -95,9 +81,23 @@ article{
     /* background-color: red; */
     
 }
+
+.ProductosCarrito article{
+    /* width: 100%;     */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-top: 2px solid #ebebeb;
+    padding: 15px 0px;
+    transition: all 0.7s ease; 
+    margin-bottom: 10px;
+}
+
 .ProductosCarrito article:hover{
     transform: scale(1.05);
 }
+
 .ProductCart_images{
     width:20%;
     /* margin-left: 40px; */
@@ -108,19 +108,57 @@ article{
     /* box-decoration-break: var(--font-color--dark-gray); */
     /* background-color: orange; */
 }
-div.articulo_carrito{
+
+
+.articulo_carrito{
     width:50%;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap ;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
+    width:40%;
+   
     
-
 }
 
 
+.qty-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    
+}
 
+.qty{
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.qty-btn {
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background-color: var(--menu-color);
+    padding: 10px ;
+}
+
+.total-container{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
 
@@ -135,18 +173,20 @@ div.articulo_carrito{
 /******************** header *********************/
 
 /******************** main *********************/
-     .ProductosCarrito article{
-         /* width: 50%; */
-     }
+    
      .articulo_carrito{
          flex-direction: row;
          /* background-color: red; */
-         flex-wrap: wrap;
-     }
-     .Precio{
-         /* background-color: aqua; */
+         /* flex-wrap: nowrap; */
      }
 
+     .qty-container{
+         flex-direction: column;
+     }
+
+     .total-container{
+         flex-direction: row;
+     }
 
 /******************** footer *********************/
 } 
@@ -157,9 +197,17 @@ div.articulo_carrito{
     /******************** header *********************/
 
     /******************** main *********************/
-    .ProductosCarrito article{
-        /* width: 25%; */
+  
+
+    .qty-container{
+        flex-direction: row;
     }
+
+    .detail{
+        flex-direction: row;
+    }
+
+    
 
     /******************** footer *********************/
      }  
