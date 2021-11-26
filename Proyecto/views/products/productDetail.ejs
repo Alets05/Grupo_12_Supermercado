@@ -21,6 +21,7 @@
 </head>
 <body>
     <header>
+        <!-- <h1 class="h1"><%- identidad %></h1> -->
        <!-- Navbar -->
        <%- include('../partials/navbar')%>
     
@@ -33,7 +34,7 @@
                 <div class= "body-dc"> 
 
                     <div class="img-body-dc">   
-                        <img src="images/Laptop.png" alt="producto">        
+                        <img src="/images/Laptop.png" alt="producto">        
                     </div>
 
                     <div class="content-body-dc">
@@ -95,7 +96,7 @@
         <section class= "more-product">
 
             <div class="product-card">
-                <img src="images/Bocina.png" alt="Bocina">
+                <img src="/images/Bocina.png" alt="Bocina">
                  <article>
                      <div class="body-card">
                          <p class="title-card"> Bocina</p>
@@ -112,7 +113,7 @@
             </div>
 
             <div class="product-card">
-                <img src="images/Bocina.png" alt="Bocina">
+                <img src="/images/Bocina.png" alt="Bocina">
                  <article>
                      <div class="body-card">
                          <p class="title-card"> Bocina</p>
@@ -129,7 +130,7 @@
             </div>
 
             <div class="product-card">
-                <img src="images/Bocina.png" alt="Bocina">
+                <img src="/images/Bocina.png" alt="Bocina">
                  <article>
                      <div class="body-card">
                          <p class="title-card"> Bocina</p>
@@ -146,7 +147,7 @@
             </div>
 
             <div class="product-card">
-                <img src="images/Bocina.png" alt="Bocina">
+                <img src="/images/Bocina.png" alt="Bocina">
                  <article>
                      <div class="body-card">
                          <p class="title-card"> Bocina</p>
@@ -169,7 +170,7 @@
     </main>
 
     <!-- Footer -->
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 
 
     
@@ -178,5 +179,14 @@
 
 
 <!-- Scripts -->
-<script type="module" src="/js/base.js"></script>
+<script type="module" src="/js/base.js">
+ 
+</script>
+
+
+<script>
+    // Ejemplo de script insertado en html
+    // const titulo = document.querySelector('.h1')
+    // titulo.innerHTML= 'HOLA'
+</script>
 </html>

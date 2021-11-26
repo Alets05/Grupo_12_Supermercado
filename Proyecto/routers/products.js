@@ -3,7 +3,7 @@ const { Router } = require("express");
 const productsController = require("../controllers/productsController");
 
 const path = require('path')
-const publicPath = path.resolve(__dirname, '../public');
+const publicPath = path.resolve(__dirname, 'public');
 
 
 const router = Router();

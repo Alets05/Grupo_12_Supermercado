@@ -9,8 +9,10 @@ const productsController = {
 
     detalle : (req = request, res = response)=>{
         const id = req.params.id;
-        console.log(id)
-        res.render(path.resolve(__dirname ,'../views/products/productDetail'));
+                    req.query
+                    req.body
+        
+        res.render(path.resolve(__dirname ,'../views/products/productDetail'), {"identidad": id});
     }
 }
 
