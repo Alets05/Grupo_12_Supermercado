@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- font awesone -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+        <!-- Google font (Roboto) -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/styles_FormProductoNuevo.css">
+
+    <title>Formulario Producto Nuevo</title>
+</head>
+<body>
+    <header>
+       <!-- Navbar -->
+       <%- include('../partials/navbar')%>
+    </header>
+  
+    <main>
+        <div class="title-form">
+            <p> Formulario de Nuevo Producto</p>    
+        </div>
+
+        <form action="AltaDeProducto"> 
+            <fieldset> 
+                <legend>Nombre del Producto:</legend> 
+                <div class="field-container">
+                    <input type="text" id="NombreProducto" name="NombreProducto">
+                </div>
+            </fieldset>
+
+            <fieldset> 
+               <legend>Descripcion del Producto:</legend> 
+                <div class="field-container">
+                    <input type="text"id="DescripcionProducto" name="DescripcionProducto">
+                </div>
+            </fieldset>
+        
+    
+            <fieldset> 
+                <legend>Inserte Imagen:</legend>    
+                <div class="field-container">
+                   <input type="image" name="ImagenProducto" id="ImagenProducto">
+                </div>
+            </fieldset>
+
+            <fieldset> 
+                <legend>Categoria:</legend>    
+                <div class="field-container">
+                    <input type="text" name="CategoriaProducto" id="CategoriaProducto">
+                </div class="field-container">
+            </fieldset>
+    
+            <fieldset> 
+                <legend>Mas detalles:</legend>    
+                <div class="field-container">
+
+                    <input type="text" name="DetallesProducto" id="DetalleProducto">
+                </div class="field-container">
+            </fieldset>
+
+            <fieldset> 
+                <legend>Precio:</legend> 
+                <div class="field-container">
+                    <input type="text" name="PrecioProducto" id="PrecioProducto">
+               </div>
+            </fieldset>
+    
+     <input type="submit" value="Agregar Producto">
+     <input type="reset" value="Limpiar Formulario">
+       
+     
+        </form>
+    </main>
+
+    <%- include('partials/footer') %>
+ 
+</body>
+
+
+<!-- Scripts -->
+<script type="module" src="/js/base.js"></script>
+
+</html>
+
+
+
+
+
+

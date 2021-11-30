@@ -11,5 +11,6 @@ router.use(express.static(publicPath))
 
 router.get('/carrito', productsController.carrito);
 router.get('/detalles/:id', productsController.detalle);
+router.get('/NuevoProducto/:id', productsController.NuevoProducto);
 
 module.exports = router;

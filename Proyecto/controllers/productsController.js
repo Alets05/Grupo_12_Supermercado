@@ -14,6 +14,14 @@ const productsController = {
         
         res.render(path.resolve(__dirname ,'../views/products/productDetail'), {"identidad": id});
     }
+
+    NuevoProducto : (req = request, res = response)=>{
+        const id = req.params.id;
+                    req.query
+                    req.body
+        
+        res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"identidad": id});
+    }
 }
 
 
