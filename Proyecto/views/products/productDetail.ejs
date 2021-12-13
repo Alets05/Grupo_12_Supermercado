@@ -14,6 +14,7 @@
       <!-- CSS -->
       <link rel="stylesheet" href="/css/styles.css">
       <link rel="stylesheet" href="/css/styles_ProductDetail.css">
+      <link rel="stylesheet" href="/css/styles_products.css">
   
   
   
@@ -21,7 +22,6 @@
 </head>
 <body>
     <header>
-        <!-- <h1 class="h1"><%- identidad %></h1> -->
        <!-- Navbar -->
        <%- include('../partials/navbar')%>
     
@@ -29,18 +29,19 @@
     <main>
         <section class="detail-container">
             <article class="detail-card">
-                <h2  class="title-dc"> Tomates frescos</h2>
+
+                <h2  class="title-dc"> <%- producto.name %> </h2>
                     <!-- Cambiar aqui por un carrousel posiblemente -->
                 <div class= "body-dc"> 
 
                     <div class="img-body-dc">   
-                        <img src="/images/Laptop.png" alt="producto">        
+                        <img src="<%- producto.avatar %>" alt="producto">        
                     </div>
 
                     <div class="content-body-dc">
                         <div class="header-content-body-dc">
-                            <p class="header-content-body-dc-desc"> Tomates </p>
-                            <p class="price-dc"> u$s 24</p>
+                            <p class="header-content-body-dc-desc"> <%- producto.name %> </p>
+                            <p class="price-dc"> u$s <%- producto.price %></p>
                         </div>
 
                         
@@ -56,17 +57,17 @@
                         
                         <div class="caract-content-dc-item">
                             <p class="carac-item">Peso:</p>
-                            <p class="carac-item-detail">500 g </p>
+                            <p class="carac-item-detail"><%- producto.weight %> g </p>
                         </div>
                         
                         <div class="caract-content-dc-item">
                             <p class="carac-item">Tamaño: </p>
-                            <p class="carac-item-detail">1000cm3 </p>
+                            <p class="carac-item-detail"> <%- producto.size %> cm3 </p>
                         </div>
 
                         <div class="caract-content-dc-item">
                             <p class="carac-item">Garantia: </p>
-                            <p class="carac-item-detail">1 año. </p>
+                            <p class="carac-item-detail"><%- producto.warranty %> año</p>
                         </div>
                         
                         </div>
@@ -94,74 +95,29 @@
         </div>
 
         <section class= "more-product">
+            <%for (producto of productosSimilares) {%>
+                
+                <div class="product-card">
+                    <img src="<%-producto.avatar%>" alt="Bocina">
+                     <article>
+                         <div class="body-card">
+                             <p class="title-card"> <%-producto.name%></p>
+                             <p class="price-card"> u$s <%-producto.price%></p>
+                         </div>
+                         <p class="desc-card"> <%-producto.description%></p>
+                    </article>
+                    <div class="add-card">
+                        <button class="add-card-btn"> 
+                            <a href="./<%- producto.id %>" class="add-link">
+                                <i class="fas fa-plus"> </i>
+                                <p>Comprar</p>           
+                            </a>
 
-            <div class="product-card">
-                <img src="/images/Bocina.png" alt="Bocina">
-                 <article>
-                     <div class="body-card">
-                         <p class="title-card"> Bocina</p>
-                         <p class="price-card"> u$s 24</p>
+                     </button>
                      </div>
-                     <p class="desc-card"> Bocina 15 db</p>
-                </article>
-                <div class="add-card">
-                    <button class="add-card-btn"> 
-                    <i class="fas fa-plus"> </i>
-                    <p>Comprar</p>                
-                 </button>
-                 </div>
-            </div>
+                </div>
 
-            <div class="product-card">
-                <img src="/images/Bocina.png" alt="Bocina">
-                 <article>
-                     <div class="body-card">
-                         <p class="title-card"> Bocina</p>
-                         <p class="price-card"> u$s 24</p>
-                     </div>
-                     <p class="desc-card"> Bocina 15 db</p>
-                </article>
-                <div class="add-card">
-                    <button class="add-card-btn"> 
-                    <i class="fas fa-plus"> </i>
-                    <p>Comprar</p>                
-                 </button>
-                 </div>
-            </div>
-
-            <div class="product-card">
-                <img src="/images/Bocina.png" alt="Bocina">
-                 <article>
-                     <div class="body-card">
-                         <p class="title-card"> Bocina</p>
-                         <p class="price-card"> u$s 24</p>
-                     </div>
-                     <p class="desc-card"> Bocina 15 db</p>
-                </article>
-                <div class="add-card">
-                    <button class="add-card-btn"> 
-                    <i class="fas fa-plus"> </i>
-                    <p>Comprar</p>                
-                 </button>
-                 </div>
-            </div>
-
-            <div class="product-card">
-                <img src="/images/Bocina.png" alt="Bocina">
-                 <article>
-                     <div class="body-card">
-                         <p class="title-card"> Bocina</p>
-                         <p class="price-card"> u$s 24</p>
-                     </div>
-                     <p class="desc-card"> Bocina 15 db</p>
-                </article>
-                <div class="add-card">
-                    <button class="add-card-btn"> 
-                    <i class="fas fa-plus"> </i>
-                    <p>Comprar</p>                
-                 </button>
-                 </div>
-            </div>
+                <% } %>
 
 
 

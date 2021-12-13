@@ -14,10 +14,14 @@ app.set('view engine', 'ejs')
 // PORT
 const port= 3001;
 
+
+
 // carpeta publica.
 const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath))
 
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded({ extended: false })); // to support URL-encoded bodies
 
 
 // Routes

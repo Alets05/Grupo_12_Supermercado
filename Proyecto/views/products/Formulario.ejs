@@ -23,56 +23,98 @@
     </header>
   
     <main>
+
+        <% if ( typeof (estado) !== 'undefined' && estado== true) { %>
+                <h4> Carga de producto realizada con exito</h4>
+            <% } %>
         <div class="title-form">
             <p> Formulario de Nuevo Producto</p>    
         </div>
-
-        <form action="AltaDeProducto"> 
+ 
+        <form action="./" method="POST" enctype="multipart/form-data">  
             <fieldset> 
                 <legend>Nombre del Producto:</legend> 
                 <div class="field-container">
-                    <input type="text" id="NombreProducto" name="NombreProducto">
+                    <input type="text" id="nombreProducto" name="nombreProducto">
                 </div>
             </fieldset>
 
             <fieldset> 
                <legend>Descripcion del Producto:</legend> 
                 <div class="field-container">
-                    <input type="text"id="DescripcionProducto" name="DescripcionProducto">
+                    <input type="text" id="descripcionProducto" name="descripcionProducto">
                 </div>
             </fieldset>
         
     
-            <fieldset> 
-                <legend>Inserte Imagen:</legend>    
-                <div class="field-container">
-                   <input type="image" name="ImagenProducto" id="ImagenProducto">
-                </div>
-            </fieldset>
-
+            
             <fieldset> 
                 <legend>Categoria:</legend>    
                 <div class="field-container">
-                    <input type="text" name="CategoriaProducto" id="CategoriaProducto">
+                    <input type="text" name="categoriaProducto" id="categoriaProducto">
                 </div class="field-container">
             </fieldset>
-    
+            
             <fieldset> 
                 <legend>Mas detalles:</legend>    
                 <div class="field-container">
 
-                    <input type="text" name="DetallesProducto" id="DetalleProducto">
+                    <input type="text" name="detallesProducto" id="detalleProducto">
                 </div class="field-container">
             </fieldset>
 
             <fieldset> 
                 <legend>Precio:</legend> 
                 <div class="field-container">
-                    <input type="text" name="PrecioProducto" id="PrecioProducto">
+                    <input type="text" name="precioProducto" id="precioProducto">
                </div>
             </fieldset>
-    
-     <input type="submit" value="Agregar Producto">
+
+            <fieldset> 
+                <legend>Descuento:</legend> 
+                <div class="field-container">
+                    <input type="text" name="descuentoProducto" id="descuentoProducto">
+               </div>
+            </fieldset>
+            
+            <fieldset> 
+                <legend>Habilitado:</legend> 
+                <div class="field-container">
+                    <input type="checkbox" name="habilitadoProducto" id="habilitadoProducto">
+               </div>
+            </fieldset>
+
+            <fieldset> 
+                <legend>Tamaño:</legend> 
+                <div class="field-container">
+                    <input type="number" name="tamanoProducto" id="tamanoProducto">
+               </div>
+            </fieldset>
+
+            <fieldset> 
+                <legend>Peso:</legend> 
+                <div class="field-container">
+                    <input type="number" name="pesoProducto" id="pesoProducto">
+               </div>
+            </fieldset>
+            
+            <fieldset> 
+                <legend>Garantia:</legend> 
+                <div class="field-container">
+                    <input type="number" name="garantiaProducto" id="garantiaProducto">
+                </div>
+            </fieldset>
+            
+            
+            <fieldset> 
+                <legend>Inserte Imagen:</legend>    
+                <div class="field-container">
+                   <input type="file" name="imagenProducto" id="imagenProducto">
+                </div>
+            </fieldset>
+            
+            
+            <input type="submit" value="Agregar Producto">
      <input type="reset" value="Limpiar Formulario">
        
      
