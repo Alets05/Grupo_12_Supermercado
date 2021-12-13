@@ -25,16 +25,24 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 
+// Para recibir PUT / DELETE:
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
+
+
 
 
 router.get('/', productsController.productos);
 router.post('/',upload.single('imagenProducto') ,productsController.guardar);
 
 router.get('/create', productsController.crear);
+router.get('/:id/edit',productsController.editar);
+router.put('/:id/edit',upload.single('imagenProducto'), productsController.actualizar);
 
 router.get('/:id', productsController.producto);
 
 router.delete('/:id', productsController.borrar);
+
 
 router.get('/carrito', productsController.carrito);
 

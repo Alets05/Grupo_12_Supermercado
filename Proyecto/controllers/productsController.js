@@ -54,7 +54,7 @@ const productsController = {
     crear : (req = request, res = response)=>{
         const id = req.params.id;
         
-        res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"identidad": id});
+        res.render(path.resolve(__dirname ,'../views/products/Formulario') );
     },
     
     guardar : (req = request, res = response)=>{
@@ -100,6 +100,58 @@ const productsController = {
             return res.json(productos);
         // res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"guardado": true});
     },
+
+    editar : (req = request, res = response)=>{
+        const id = req.params.id;
+
+        
+        const productos = require('../data/products.json');
+        const producto = productos.find( prod => prod.id == id);
+        console.log(producto);
+        
+        res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
+    },
+
+    actualizar : (req = request, res = response) => {
+        const  {
+            nombreProducto, 
+            descripcionProducto,
+            categoriaProducto,
+            detallesProducto,
+            precioProducto,
+            descuentoProducto,
+            habilitadoProducto,
+            tamanoProducto,
+            pesoProducto,
+            garantiaProducto, 
+            imagenProducto
+            } = req.body;
+
+            const id = req.params.id;
+       
+        const productos = require('../data/products.json');
+        const producto = productos.find( prod => prod.id == id);
+
+        producto.name=nombreProducto; 
+        producto.description=descripcionProducto;
+        producto.category=categoriaProducto;
+            // detallesProducto,
+        producto.price= precioProducto;
+        producto.discount= descuentoProducto;
+        producto.enabled=habilitadoProducto;
+        producto.size=tamanoProducto;
+        producto.weight= pesoProducto;
+        producto.warranty=garantiaProducto;
+        producto.avatar=req.file.filename;
+
+        console.log(productos);
+        fs.writeFileSync( './data/products.json',JSON.stringify(productos));
+
+        res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
+    
+       
+    },
+    
 
 
 

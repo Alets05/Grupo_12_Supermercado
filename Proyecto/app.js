@@ -28,7 +28,9 @@ app.use(express.urlencoded({ extended: false })); // to support URL-encoded bodi
 app.use('/users',usersRoutes);
 app.use('/products',productsRoutes);
 
-
+// Para recibir PUT / DELETE:
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 app.get('/', (req,res)=>{
     res.render( path.resolve(__dirname,'views/Home'));
