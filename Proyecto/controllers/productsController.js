@@ -4,10 +4,10 @@ const path = require('path')
 
 const productsController = {
 
-    productos: (req=request, res = respponse)=>{
+    productos: (req=request, res = response)=>{
 
         let productos = require('../data/products.json');
-        productos = productos.filter( prod => prod.enabled == true);
+        productos = productos.filter( prod => prod.enabled == 'on');
         // console.log(productos);
         res.render( path.join( __dirname , '../views/products/products'), {productos : productos}  );
     },
@@ -26,7 +26,7 @@ const productsController = {
                 break;
             }
         }
-        const productosSimilares = productos.filter ( prod =>  (prod.category == producto.category && prod.id != id ) );
+        const productosSimilares = productos.filter ( prod =>  (prod.category == producto.category && prod.id != id && prod.enabled == true) );
         console.log(productosSimilares);
         res.render( path.join( __dirname , '../views/products/productDetail'), {producto : producto , productosSimilares: productosSimilares}  );
     },
@@ -97,8 +97,8 @@ const productsController = {
             fs.writeFileSync( './data/products.json',JSON.stringify(productos));
         
             
-            return res.json(productos);
-        // res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"guardado": true});
+            // return res.json(productos);
+        res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"guardado": true});
     },
 
     editar : (req = request, res = response)=>{
