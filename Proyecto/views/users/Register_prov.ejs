@@ -29,12 +29,12 @@
             <p> Formulario de Registro</p>    
         </div>
 
-        <form action="AltaDeUsuario"> 
+        <form  action="./register" method="POST" enctype="multipart/form-data"> 
             <fieldset> 
                 <legend>Nombre</legend> 
                 <div class="field-container">
                     <i class="fas fa-user">   </i> 
-                    <input type="text" id="Nombre y apellido" name="Nombre_Apellido">
+                    <input type="text" id="Nombre y apellido" name="nombreApe">
                 </div>
             </fieldset>
 
@@ -42,7 +42,7 @@
             <legend>Nombre de Usuario:</legend> 
                 <div class="field-container">
                     <i class="fas fa-user-tag">   </i>
-                    <input type="text"id="Nombre de usuario" name="Nombre_Usuario">
+                    <input type="text"id="Nombre de usuario" name="nombreUsuario">
                 </div>
             </fieldset>
         
@@ -52,7 +52,7 @@
                <legend>Fecha de Nacimiento:</legend> 
                 <div class="field-container">
                     <i class="fas fa-calendar">   </i> 
-                    <input type="text"id="Fecha de Nacimiento" name="Fecha_Nacimiento">
+                    <input type="text"id="Fecha de Nacimiento" name="fechaNac">
                 </div>
             </fieldset>
         
@@ -61,7 +61,7 @@
                 <legend>Domicilio:</legend>    
                 <div class="field-container">
                     <i class="fas fa-map-marker">   </i> 
-                    <input type="text"id="Domicilio" name="Domicilio_Address">
+                    <input type="text"id="Domicilio" name="Address">
                 </div>
             </fieldset>
 
@@ -77,7 +77,7 @@
                 <legend>Contraseña:</legend>    
                 <div class="field-container">
                     <i class="fas fa-lock">   </i> 
-                    <input type="password" name="Contasenia" id="Password">
+                    <input type="password" name="password" id="Password">
                 </div class="field-container">
             </fieldset>
 
@@ -85,8 +85,15 @@
                 <legend>Confirmar Contraseña:</legend> 
                 <div class="field-container">
                     <i class="fas fa-lock">   </i> 
-                    <input type="password" name="Confirmacion_Contasenia" id="Password_Confirmation">
+                    <input type="password" name="passwordConfirm" id="Password_Confirmation">
                </div>
+            </fieldset>
+
+            <fieldset> 
+                <legend>Imagen de Perfil:</legend>    
+                <div class="field-container">
+                   <input type="file" name="imagenPerfil" id="imagenProducto">
+                </div>
             </fieldset>
     
          <h8>Al crear una cuenta, aceptas el Aviso de Privacidad, los Términos y Condiciones, así como el envío de noticias y promociones exclusivas. Puedes desactivar el envío de promociones desde el enlace incluido en cada correo.</h8> 
