@@ -1,14 +1,67 @@
 const { request, response } = require("express");
-const path = require('path')
-const bcryptjs = require ('bcryptjs') 
-const fs = require ('fs')
+const path = require('path');
+const bcryptjs = require ('bcryptjs') ;
+const cookie = require('cookie-parser');
+const fs = require ('fs');
 
 
 const userController = {
 
+    
     login : (req=request, res= response)=> {
         res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
     },
+
+    processLogin : (req=request, res= response) => {
+
+        const {
+            email,
+            password,
+            recordarUsuario
+        } = req.body;
+        
+        // Consulto si usuario existe.
+        const usuarios = require ('../data/users.json');
+        const usuario =  usuarios.find (user => user.email === email);
+        
+        if (!usuario) {
+
+           return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
+                 {
+                status: 400, 
+                error : {
+                campo : 'email',
+                msg: 'usuario no se encuentra en la base de datos'
+                }
+            }
+        });
+
+        }
+        
+        // valido password  
+        if (!bcryptjs.compareSync(password, usuario.password)) {
+            
+            
+           return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
+            {
+           status: 400, 
+           error : {
+           campo : 'password',
+           msg: 'password Incorrecto'
+                    }
+                }
+            });
+    }
+
+
+        if (recordarUsuario) {
+            res.cookie('userEmail', email, {maxAge : (1000 * 60 ) * 2 }); // guardo por 2 minutos
+        }
+
+        res.render(path.resolve(__dirname ,'../views/Home'));
+        
+    },
+
 
     
     
@@ -53,7 +106,8 @@ const userController = {
         }
 
         // encripto password
-        let passwordHash = bcryptjs.hashSync (password, 10);
+        const salt = bcryptjs.genSaltSync(10);
+        const passwordHash = bcryptjs.hashSync (password, salt);
 
         const user = {
             nombreApe, 
@@ -62,7 +116,8 @@ const userController = {
             Adress,
             email,
             password : passwordHash,
-            avatar : req.file.filename
+            avatar : req.file.filename,
+            passwordtest : password,
         }
 
 

@@ -2,17 +2,22 @@ const express = require('express');
 
 const path = require('path');
 
+// manejo de sesiones
+const session = require('express-session')
+
 // Routers import
 const usersRoutes =  require('./routers/users')
 const productsRoutes = require('./routers/products')
 
 const app = express();
 
+// PORT
+const port= 3001;
+
+
 // Ejs
 app.set('view engine', 'ejs')
 
-// PORT
-const port= 3001;
 
 
 
@@ -22,6 +27,12 @@ app.use(express.static(publicPath))
 
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded({ extended: false })); // to support URL-encoded bodies
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  })) // set sessiones
 
 
 // Routes
@@ -36,6 +47,13 @@ app.get('/', (req,res)=>{
     res.render( path.resolve(__dirname,'views/Home'));
 })
 
+
+// Error 404
+app.use((req, res, next) => {
+    res.render(path.resolve(__dirname ,'./views/error404') );
+    next();
+    
+})
 
 // app.get('/carrito', (req,res)=>{
 //     res.render(path.resolve(__dirname ,'views/products/ProductCart'));

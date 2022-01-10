@@ -27,12 +27,18 @@
    
     <main>
 
-        <form action="/login" method="POST">
+        <!-- <% if ( typeof (data) !== 'undefined' ) { %>
+            <%- data.error.msg %>
+        <% } %> -->
+    
+
+
+        <form action="./login" method="POST">
             <fieldset> 
                 <legend>Nombre</legend> 
                 <div class="field-container">
                     <i class="fas fa-user">   </i>
-                    <input type="email" name="username" id="username" placeholder=""> 
+                    <input type="email" name="email" id="email" placeholder=""> 
               </div>
                
             </fieldset>
@@ -46,7 +52,7 @@
             </fieldset>
 
             <div class="field-container">
-                <input type="checkbox" name="recordar_usuario" id="recordar_usuario" >Recodar Usuario
+                <input type="checkbox" name="recordarUsuario" id="recordar_usuario" >Recodar Usuario
             </div>
 
 
