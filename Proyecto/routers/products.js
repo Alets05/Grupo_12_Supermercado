@@ -27,6 +27,7 @@ const upload = multer({storage});
 const methodOverride = require('method-override');
 const { guestMiddleware } = require('../middlewares/guestMiddleware');
 const { validarCampos } = require('../middlewares/validarCampos');
+const { authMiddleware } = require('../middlewares/authMiddleware');
 
 // middleware express validator
 
@@ -39,19 +40,21 @@ router.use(methodOverride('_method'));
 
 
 // routes
-router.get('/', productsController.productos);
-router.post('/',upload.single('imagenProducto') ,productsController.guardar);
+router.get('/carrito' ,[authMiddleware, validarCampos] , productsController.carrito);
 
-router.get('/create', [guestMiddleware, validarCampos], productsController.crear);
+router.get('/create', [authMiddleware, validarCampos], productsController.crear);
 
-router.get('/:id/edit',productsController.editar);
+router.get('/:id/edit', [authMiddleware, validarCampos] ,productsController.editar);
 router.put('/:id/edit',upload.single('imagenProducto'), productsController.actualizar);
 
-router.get('/:id', productsController.producto);
+router.get('/:id', [authMiddleware, validarCampos] ,productsController.producto);
 
-router.delete('/:id', productsController.borrar);
+router.delete('/:id', [authMiddleware, validarCampos] , productsController.borrar);
 
 
-router.get('/carrito', productsController.carrito);
+
+router.get('/', [authMiddleware, validarCampos], productsController.productos);
+router.post('/',upload.single('imagenProducto') ,productsController.guardar);
+
 
 module.exports = router;

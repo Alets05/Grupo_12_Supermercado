@@ -107,7 +107,11 @@ const productsController = {
         
         const productos = require('../data/products.json');
         const producto = productos.find( prod => prod.id == id);
-        console.log(producto);
+        // console.log(producto);
+        if (!producto){
+            
+        return res.redirect ( "/products/");
+        }
         
         res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
     },
@@ -156,7 +160,7 @@ const productsController = {
 
 
     carrito : (req=request, res = response)=>{
-
+        console.log('carrito');
         res.render(path.resolve(__dirname ,'../views/products/productCart'));
     }
 

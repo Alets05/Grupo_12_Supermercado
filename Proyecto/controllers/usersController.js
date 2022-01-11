@@ -20,10 +20,12 @@ const userController = {
             recordarUsuario
         } = req.body;
         
+        console.log('Process Login: ' + email + '  '  + password + '  ' +recordarUsuario);
         // Consulto si usuario existe.
         const usuarios = require ('../data/users.json');
         const usuario =  usuarios.find (user => user.email === email);
         
+        // Valido que el usuario exista
         if (!usuario) {
 
            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
@@ -54,12 +56,28 @@ const userController = {
     }
 
 
+         let userSession = {};
+        Object.assign(userSession, usuario);
+        userSession.password= ''
+        req.session.userLogged = userSession;
+        
         if (recordarUsuario) {
+            console.log('Guardo cookie');
             res.cookie('userEmail', email, {maxAge : (1000 * 60 ) * 2 }); // guardo por 2 minutos
         }
-
-        res.render(path.resolve(__dirname ,'../views/Home'));
         
+        
+        res.redirect('/');
+        
+    },
+
+
+    logout : (req=request, res= response) => {
+
+        req.session.destroy();
+        res.clearCookie('userEmail');
+        console.log('logout: ' + req.session);
+        res.redirect ( "/");
     },
 
 

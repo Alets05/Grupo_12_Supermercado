@@ -28,6 +28,7 @@ const upload = multer({storage});
 const methodOverride = require('method-override');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validarCampos');
+const { guestMiddleware } = require('../middlewares/guestMiddleware');
 router.use(methodOverride('_method'));
 
 const validateLogin = [
@@ -42,10 +43,12 @@ const validateLogin = [
 
 
 
-router.get('/login', userController.login);
+router.get('/login',guestMiddleware, userController.login);
 router.post('/login',  [validateLogin, validarCampos ], userController.processLogin);
 
-router.get('/register', userController.register);
+router.get('/logout', userController.logout);
+
+router.get('/register', guestMiddleware, userController.register);
 router.post('/register',upload.single('imagenPerfil'), userController.processRegister);
 
 
