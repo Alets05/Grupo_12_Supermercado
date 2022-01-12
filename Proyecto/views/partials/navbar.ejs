@@ -11,13 +11,27 @@
                 <span><i class="fas fa-shopping-cart">  </i> </span> 
                 <!-- <span class="item-descripcion"> Carrito</span>   -->
             </a> 
-        </li>
-        <li class="item-mobile">
-            <a href="/users/login">
-                <span><i class="fas fa-user">  </i> </span>
-                <!-- <span class="item-descripcion"> Sesion</span>    -->
-            </a>  
-        </li>
+        
+        <% if (locals.isLogged) { %>
+
+            <li class="item-mobile">
+                <a href="/users/logout">
+                    <span> <i class="fas fa-user"> </i> </span>
+                </a>  
+            </li>
+            
+            <% } else { %>
+                
+                <li class="item-mobile">
+                    <a href="/users/login">
+                        <span> <i class="fas fa-user"> </i> </span>  
+                    </a>  
+                </li>
+
+        <% } %>
+
+
+
     </ul>
 </nav>
 
@@ -50,12 +64,30 @@
                 <span class="item-descripcion"> Carrito</span>  
             </a> 
         </li>
-        <li class="item item-desktop">
-            <a href="/users/login">
-                <span> <i class="fas fa-user"> </i> </span>
-                <span class="item-descripcion"> Sesion</span>   
-            </a>  
-        </li>
+
+            <% if (locals.isLogged) { %>
+
+                <li class="item item-desktop">
+                    <a href="/users/logout">
+                        <span> <i class="fas fa-user"> </i> </span>
+                        <span class="item-descripcion"> Finalizar Sesion</span>   
+                    </a>  
+                </li>
+                
+                <% } else { %>
+                    
+                    <li class="item item-desktop">
+                        <a href="/users/login">
+                            <span> <i class="fas fa-user"> </i> </span>
+                            <span class="item-descripcion"> Sesion</span>   
+                        </a>  
+                    </li>
+
+            <% } %>
+
+
+
+
     </ul>
 </nav>
 

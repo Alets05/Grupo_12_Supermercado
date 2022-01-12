@@ -1,10 +1,11 @@
-[{"id":1,"first_name":"Tucker","last_name":"Yandell","email":"tyandell0@shareasale.com","password":"jfTMNw6U3","categoria":"Services","avatar":"https://robohash.org/rerumtemporereprehenderit.png?size=50x50&set=set1"},
-{"id":2,"first_name":"Cathi","last_name":"Costen","email":"ccosten1@slideshare.net","password":"wbZTwnhK2E1","categoria":"Services","avatar":"https://robohash.org/doloristecupiditate.png?size=50x50&set=set1"},
-{"id":3,"first_name":"Marthena","last_name":"Di Filippo","email":"mdifilippo2@com.com","password":"8S4hCjtZ","categoria":"Services","avatar":"https://robohash.org/voluptatemdelectusquam.png?size=50x50&set=set1"},
-{"id":4,"first_name":"Riccardo","last_name":"McGuinley","email":"rmcguinley3@bing.com","password":"pX3IXbD4g","categoria":"Accounting","avatar":"https://robohash.org/exercitationemsuntet.png?size=50x50&set=set1"},
-{"id":5,"first_name":"Wheeler","last_name":"Lockhart","email":"wlockhart4@hhs.gov","password":"Qhl0UCi1tAk","categoria":"Engineering","avatar":"https://robohash.org/sapienteipsarepudiandae.png?size=50x50&set=set1"},
-{"id":6,"first_name":"Constantine","last_name":"Anstis","email":"canstis5@com.com","password":"Z62PteZexb1J","categoria":"Training","avatar":"https://robohash.org/amagnamamet.png?size=50x50&set=set1"},
-{"id":7,"first_name":"Krystyna","last_name":"Kaine","email":"kkaine6@wisc.edu","password":"1zdiafbt","categoria":"Services","avatar":"https://robohash.org/saepeautemaliquam.png?size=50x50&set=set1"},
-{"id":8,"first_name":"Abey","last_name":"Lynd","email":"alynd7@mtv.com","password":"YRrCOIoEKO","categoria":"Engineering","avatar":"https://robohash.org/faceremolestiaeomnis.png?size=50x50&set=set1"},
-{"id":9,"first_name":"Rozamond","last_name":"Aldersey","email":"raldersey8@topsy.com","password":"bzPu9WeEl7","categoria":"Product Management","avatar":"https://robohash.org/quiexvel.png?size=50x50&set=set1"},
-{"id":10,"first_name":"Berget","last_name":"Bartol","email":"bbartol9@opera.com","password":"PIjzivGw","categoria":"Services","avatar":"https://robohash.org/doloremcumsapiente.png?size=50x50&set=set1"}]
+[
+    {
+        "nombreApe": "nombre01",
+        "nombreUsuario": "User01",
+        "fechaNac": "10/12/1989",
+        "email": "matiasrj_89@hotmail.com",
+        "password": "$2a$10$aAHyEL6U3jIEfEzSqwi43u0X3JkQOkqS/BKE7cXQE56pR929bL5c6",
+        "avatar": "img_1641732090746.jpg",
+        "passwordtest": "matias"
+    }
+]
