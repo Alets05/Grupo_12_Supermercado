@@ -13,7 +13,7 @@ const userController = {
         res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
     },
 
-    processLogin : (req=request, res= response) => {
+    processLogin : async (req=request, res= response) => {
 
         const {
             email,
@@ -22,14 +22,16 @@ const userController = {
         } = req.body;
         
         console.log('Process Login: ' + email + '  '  + password + '  ' +recordarUsuario);
+        let user = await db.User.findOne({where: { email : email } })
         // Consulto si usuario existe.
-        const usuarios = require ('../data/users.json');
-        const usuario =  usuarios.find (user => user.email === email);
+        // const usuarios = require ('../data/users.json');
+        // const usuario =  usuarios.find (user => user.email === email);
         
         // Valido que el usuario exista
-        if (!usuario) {
+        // if (!usuario) {
+            if (!user) {
 
-           return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
+            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
                  {
                 status: 400, 
                 error : {
@@ -42,7 +44,7 @@ const userController = {
         }
         
         // valido password  
-        if (!bcryptjs.compareSync(password, usuario.password)) {
+        if (!bcryptjs.compareSync(password, user.password)) {
             
             
            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
@@ -57,8 +59,8 @@ const userController = {
     }
 
 
-         let userSession = {};
-        Object.assign(userSession, usuario);
+        let userSession = {};
+        Object.assign(userSession, user);
         userSession.password= ''
         req.session.userLogged = userSession;
         
@@ -89,7 +91,7 @@ const userController = {
     },
 
 
-    processRegister : (req=request, res= response)=> {
+    processRegister : async (req=request, res= response)=> {
         const  {
             nombreApe, 
             nombreUsuario,
@@ -114,14 +116,17 @@ const userController = {
         }
     
         // Valido que no exista email registrado
-        let usuarios = require('../data/users.json');
-        let existUser = usuarios.find ( user => user.email === email);
-        if (existUser){
+        // let usuarios = require('../data/users.json');
+        // let existUser = usuarios.find ( user => user.email === email);
+        // if (existUser){
+
+        let usuario = await db.User.findOne({where: { email : email } })
+        if (usuario){
             return res.status(400).json({
-                error:{
-                    msg : 'El email ya se encuentra registrado'
-                }
-            })
+            error:{
+                msg : 'El email ya se encuentra registrado'
+            }
+        })
         }
 
         // encripto password
@@ -141,9 +146,21 @@ const userController = {
 
 
         // Guardo nuevo usuario 
-        usuarios.push (user);
-        console.log(JSON.stringify(usuarios));
-        fs.writeFileSync('./data/users.json', JSON.stringify(usuarios));
+        // usuarios.push (user);
+        // console.log(JSON.stringify(usuarios));
+        // fs.writeFileSync('./data/users.json', JSON.stringify(usuarios));
+         
+        console.log('aqui');
+        await db.User.create({
+            firstName: user.nombreUsuario,
+            lastName: user.nombreApe,
+            email : user.email,
+            password : user.password,
+            avatar : user.avatar,
+            fechaNac : user.fechaNac,
+            createdAt: "2019-12-01T03:55:41.000Z",
+            updatedAt: "2019-12-01T03:55:41.000Z",
+        });
         res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
 
     } catch (error) {
