@@ -4,6 +4,7 @@ const bcryptjs = require ('bcryptjs') ;
 const cookie = require('cookie-parser');
 const fs = require ('fs');
 
+const db = require('../database/models'); 
 
 const userController = {
 
