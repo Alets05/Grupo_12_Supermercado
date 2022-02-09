@@ -49,7 +49,7 @@ router.put('/:id/edit',upload.single('imagenProducto'), productsController.actua
 
 router.get('/:id', [authMiddleware, validarCampos] ,productsController.producto);
 
-router.delete('/:id', [authMiddleware, validarCampos] , productsController.borrar);
+router.delete('/:id',productsController.borrar);
 
 
 

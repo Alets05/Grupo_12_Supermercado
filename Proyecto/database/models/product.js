@@ -30,7 +30,16 @@ module.exports = (sequelize, DataTypes) => {
     weight: DataTypes.FLOAT,
     warranty: DataTypes.INTEGER,
     avatar: DataTypes.STRING,
-    category_idcategory: DataTypes.INTEGER
+    createdAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
   }, {
     sequelize,
     modelName: 'Product',

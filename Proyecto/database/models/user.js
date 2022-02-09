@@ -24,7 +24,19 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     avatar: DataTypes.STRING,
-    fechaNac: DataTypes.STRING
+    fechaNac: DataTypes.STRING,
+    createdAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+
+
   }, {
     sequelize,
     modelName: 'User',

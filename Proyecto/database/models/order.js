@@ -23,7 +23,17 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     nombre: DataTypes.STRING,
     medioPago: DataTypes.STRING,
-    user_idUser: DataTypes.INTEGER
+    user_idUser: DataTypes.INTEGER,
+    createdAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
   }, {
     sequelize,
     modelName: 'Order',

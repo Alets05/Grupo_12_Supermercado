@@ -22,16 +22,11 @@ const userController = {
         } = req.body;
         
         console.log('Process Login: ' + email + '  '  + password + '  ' +recordarUsuario);
-        let user = await db.User.findOne({where: { email : email } })
         // Consulto si usuario existe.
-        // const usuarios = require ('../data/users.json');
-        // const usuario =  usuarios.find (user => user.email === email);
+        let user = await db.User.findOne({where: { email : email } })
         
-        // Valido que el usuario exista
-        // if (!usuario) {
-            if (!user) {
-
-            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
+        if (!user) {
+              return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
                  {
                 status: 400, 
                 error : {
@@ -45,7 +40,6 @@ const userController = {
         
         // valido password  
         if (!bcryptjs.compareSync(password, user.password)) {
-            
             
            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
             {

@@ -17,7 +17,17 @@ module.exports = (sequelize, DataTypes) => {
   };
   Order_detail.init({
     order_idOrder: DataTypes.INTEGER,
-    product_idProduct: DataTypes.INTEGER
+    product_idProduct: DataTypes.INTEGER,
+    createdAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
   }, {
     sequelize,
     modelName: 'Order_detail',

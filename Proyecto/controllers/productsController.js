@@ -1,50 +1,50 @@
 const { request, response } = require("express");
 const fs = require('fs');
+const { type } = require("os");
 const path = require('path')
+
+
+const db = require('../database/models'); 
 
 const productsController = {
 
-    productos: (req=request, res = response)=>{
+    productos: async (req=request, res = response)=>{
 
-        let productos = require('../data/products.json');
-        productos = productos.filter( prod => prod.enabled == 'on');
-        // console.log(productos);
+        let productos = await db.Product.findAll();
         res.render( path.join( __dirname , '../views/products/products'), {productos : productos}  );
     },
 
 
-    producto: (req=request, res = response)=>{
+    producto: async (req=request, res = response)=>{
 
-        const id = req.params.id;
-        console.log(id);
+        let id = req.params.id;
+        id = parseInt(id);
 
-        let productos = require('../data/products.json');
-        
-        for ( producto of productos ){
-            if (Number(producto.id) == Number(id)){
-                producto = producto;
-                break;
-            }
-        }
-        const productosSimilares = productos.filter ( prod =>  (prod.category == producto.category && prod.id != id && prod.enabled == true) );
-        console.log(productosSimilares);
+        let producto = await db.Product.findOne({where: {id:id}});
+        // console.log(producto.dataValues);
+        const productosSimilares = await db.Product.findAll({where : { idCategory : producto.idCategory} } );
+
+        // console.log(productosSimilares);
         res.render( path.join( __dirname , '../views/products/productDetail'), {producto : producto , productosSimilares: productosSimilares}  );
     },
 
-    borrar: (req=request, res = response)=>{
+    borrar: async (req=request, res = response)=>{
 
         const id = req.params.id;
-
-        let productos = require('../data/products.json');
+        const idprod = parseInt(id,10);
         
-        for ( producto of productos ){
-            if (Number(producto.id) == Number(id)){
-                
-                producto.enabled= false;
-                fs.writeFileSync( './data/products.json',JSON.stringify(productos));
-                break;
-            }
+        console.log('idprod' + idprod + typeof(idprod));
+        try {
+        await db.Product.update({
+            enabled:false},
+            {
+            where : {id : idprod}
+        });
+            
+        } catch (error) {
+            console.log(error);                
         }
+        
 
         res.redirect(this.productos) ;
     },
@@ -57,7 +57,7 @@ const productsController = {
         res.render(path.resolve(__dirname ,'../views/products/Formulario') );
     },
     
-    guardar : (req = request, res = response)=>{
+    guardar : async (req = request, res = response)=>{
         const  {
             nombreProducto, 
             descripcionProducto,
@@ -72,51 +72,54 @@ const productsController = {
             imagenProducto
             } = req.body;
 
+            let habilitadoProductoBool=false;
+            
+            if (habilitadoProducto === 'on'){
+                habilitadoProductoBool = true
+            }
 
+            
             const producto = {
-            id : Date.now(),
+            
             name:nombreProducto, 
             description:descripcionProducto,
-            category:categoriaProducto,
-            // detallesProducto,
+            idCategory:parseInt(categoriaProducto),
             price: precioProducto,
             discount: descuentoProducto,
-            enabled:habilitadoProducto,
+            enabled:habilitadoProductoBool,
             size:tamanoProducto,
             weight: pesoProducto,
             warranty:garantiaProducto,
             avatar:req.file.filename
             }
-
             console.log(producto);
-            let productos=[];
-
-            productos = require('../data/products.json');
-            productos.push(producto);
-            // console.log(productos);
-            fs.writeFileSync( './data/products.json',JSON.stringify(productos));
-        
+        try {
             
-            // return res.json(productos);
+            let productoDB = await db.Product.create ( producto );
+             } catch (error) {
+            
+            console.log(error);
+             }
+
+            
         res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"guardado": true});
     },
 
-    editar : (req = request, res = response)=>{
-        const id = req.params.id;
+    editar : async (req = request, res = response)=>{
+        let id = req.params.id;
 
+        id = parseInt(id)
         
-        const productos = require('../data/products.json');
-        const producto = productos.find( prod => prod.id == id);
-        // console.log(producto);
+        let producto = await db.Product.findOne({where : { id : id }})
+        
         if (!producto){
             
         return res.redirect ( "/products/");
         }
-        
         res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
     },
 
-    actualizar : (req = request, res = response) => {
+    actualizar : async (req = request, res = response) => {
         const  {
             nombreProducto, 
             descripcionProducto,
@@ -132,25 +135,36 @@ const productsController = {
             } = req.body;
 
             const id = req.params.id;
-       
-        const productos = require('../data/products.json');
-        const producto = productos.find( prod => prod.id == id);
+            let idProd = parseInt(id);
 
-        producto.name=nombreProducto; 
-        producto.description=descripcionProducto;
-        producto.category=categoriaProducto;
-            // detallesProducto,
-        producto.price= precioProducto;
-        producto.discount= descuentoProducto;
-        producto.enabled=habilitadoProducto;
-        producto.size=tamanoProducto;
-        producto.weight= pesoProducto;
-        producto.warranty=garantiaProducto;
-        producto.avatar=req.file.filename;
+            let habilitadoProductoBool=false;
+            
+            if (habilitadoProducto === 'on'){
+                habilitadoProductoBool = true
+            }
+    
+        
+            const producto = {
+                
+                name:nombreProducto, 
+                description:descripcionProducto,
+                idCategory:parseInt(categoriaProducto),
+                price: precioProducto,
+                discount: descuentoProducto,
+                enabled:habilitadoProductoBool,
+                size:tamanoProducto,
+                weight: pesoProducto,
+                warranty:garantiaProducto,
+                avatar:req.file.filename
+                }
 
-        console.log(productos);
-        fs.writeFileSync( './data/products.json',JSON.stringify(productos));
-
+                try {
+                    let prod = await db.Product.update(producto, {where : {id:idProd}});
+                    console.log(prod);
+                    
+                } catch (error) {
+                    console.log(error);
+                }
         res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
     
        
