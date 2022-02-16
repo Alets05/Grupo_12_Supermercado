@@ -144,7 +144,6 @@ const userController = {
         // console.log(JSON.stringify(usuarios));
         // fs.writeFileSync('./data/users.json', JSON.stringify(usuarios));
          
-        console.log('aqui');
         await db.User.create({
             firstName: user.nombreUsuario,
             lastName: user.nombreApe,
@@ -155,8 +154,9 @@ const userController = {
             createdAt: "2019-12-01T03:55:41.000Z",
             updatedAt: "2019-12-01T03:55:41.000Z",
         });
-        res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
+        // res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
 
+        res.redirect('/');
     } catch (error) {
             console.log('No se pudo registrar el usuario')
     }
