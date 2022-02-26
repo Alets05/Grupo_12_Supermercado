@@ -12,6 +12,7 @@ const cookieParser = require('cookie-parser')
 // Routers import
 const usersRoutes =  require('./routers/users')
 const productsRoutes = require('./routers/products')
+const apiRoutes = require('./routers/api')
 
 // middleware a nivel aplicacion
 const { isUserLoggedMiddleware } = require('./middlewares/isUserLoggedMiddleware');
@@ -52,6 +53,7 @@ app.use(session({
 // Routes
 app.use('/users',usersRoutes);
 app.use('/products',productsRoutes);
+app.use('/api',apiRoutes);
 
 // Para recibir PUT / DELETE:
 const methodOverride = require('method-override');

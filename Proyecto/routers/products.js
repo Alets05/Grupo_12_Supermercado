@@ -29,6 +29,7 @@ const methodOverride = require('method-override');
 const { guestMiddleware } = require('../middlewares/guestMiddleware');
 const { validarCampos } = require('../middlewares/validarCampos');
 const { authMiddleware } = require('../middlewares/authMiddleware');
+const { productsApiController } = require('../controllers/api/productsApi');
 
 // middleware express validator
 
@@ -43,20 +44,14 @@ router.use(methodOverride('_method'));
 
 // routes
 router.get('/carrito' ,[authMiddleware, validarCampos] , productsController.carrito);
-
 router.get('/create', [authMiddleware, validarCampos], productsController.crear);
-
 router.get('/:id/edit', [authMiddleware, validarCampos] ,productsController.editar);
 router.put('/:id/edit',upload.single('imagenProducto'), productsController.actualizar);
-
 router.get('/:id', [authMiddleware, validarCampos] ,productsController.producto);
-
 router.delete('/:id',productsController.borrar);
-
-
-
 router.get('/', [authMiddleware, validarCampos], productsController.productos);
 router.post('/',upload.single('imagenProducto') ,productsController.guardar);
+
 
 
 module.exports = router;
