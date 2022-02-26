@@ -5,6 +5,7 @@ const cookie = require('cookie-parser');
 const fs = require ('fs');
 
 const db = require('../database/models'); 
+const { validationResult } = require("express-validator");
 
 const userController = {
 
@@ -22,6 +23,12 @@ const userController = {
         } = req.body;
         
         console.log('Process Login: ' + email + '  '  + password + '  ' +recordarUsuario);
+
+        const errors = validationResult(req);
+        if ( !errors.isEmpty() ){
+            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { errors : errors.mapped(),old : req.body
+            });  
+        }
 
         let userSession = {};
         Object.assign(userSession, req.usuario);
@@ -48,7 +55,9 @@ const userController = {
     
     
     register: (req=request, res= response)=> {
-        res.render(path.resolve(__dirname ,'../views/users/Register_prov'));
+        
+        
+        res.render(path.resolve(__dirname ,'../views/users/Register_prov'), {errors : null});
     },
 
 
@@ -66,15 +75,13 @@ const userController = {
         
         try {
             
-        
-        // valido password
-        if (password !== passwordConfirm ){
-            return res.status(400).json({
-                error:{
-                    msg : 'Confirmacion de password incorrecta.'
-                }
-            })
+        const errors = validationResult(req);
+        if ( !errors.isEmpty() ){
+            console.log(errors.mapped())
+            return res.render(path.join(__dirname ,'../views/users/Register_prov'), { errors : errors.mapped(),old : req.body
+            });  
         }
+
     
         // encripto password
         const salt = bcryptjs.genSaltSync(10);

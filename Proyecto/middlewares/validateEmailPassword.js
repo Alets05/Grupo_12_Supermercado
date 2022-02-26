@@ -3,20 +3,24 @@ const bcryptjs = require ('bcryptjs') ;
 const { request, response } = require('express');
 const path = require('path');
 
-const validateEmailRegister  =  async (req, res, next) => {
+const validateEmailRegister  =  async (email, {req, res}) => {
 
     // console.log('gest middleware: ' + req.session.userLogged);
    
     let usuario = await db.User.findOne({where: { email : email } })
+    
     if (usuario){
-        return res.status(400).json({
-        error:{
-            msg : 'El email ya se encuentra registrado'
-        }
-    })
+            throw new Error (`email ya existe`)
     }
-    return true;
-    next();
+}
+
+const validatePasswordRegister  =  async (password, {req}) => {
+ 
+        // valido password
+        if (password !== req.body.passwordConfirm ){
+                throw new Error (`confirmacion de password incorrecto`)       
+                 }
+        
 }
 
 const validateEmailLogin  =  async (email) => {
@@ -40,9 +44,9 @@ const validatePasswordLogin  =  async (password) => {
         // valido password  
         if (!bcryptjs.compareSync(password, request.usuario['password'])) {
             
-            throw new Error (`login:password incorrecto`)   
+            throw new Error (`password incorrecto`)   
             }
     }
 }
 
-module.exports= {validateEmailRegister, validateEmailLogin, validatePasswordLogin};
+module.exports= {validateEmailRegister, validateEmailLogin, validatePasswordLogin, validatePasswordRegister};

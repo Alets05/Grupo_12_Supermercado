@@ -1,32 +1,34 @@
+const { request } = require("express");
+const path = require('path')
 
-const validateImage  = (req, res, next) => {
+const validateImage  = (imagen, {req, res}) => {
 
-    // console.log('gest middleware: ' + req.session.userLogged);
-    if (typeof req.files['imagenPerfil'] == "undefined"){
+    // console.log('tipo de dato ' + JSON.stringify(req.file));
+
+    if (typeof req.file == undefined){
         throw new Error (`imagenPerfil es obligatorio`)
         }
 
-
-    filename = req.files['imagenPerfil'];
-    var extension = (path.extname(filename)).toLowerCase();
+    filename = req.file.originalname;
+    let extension = (path.extname(filename)).toLowerCase();
         switch (extension) {
             case '.jpg':
                 // return '.jpg';
-                pass
+                break;
             case '.jpeg':
                 // return '.jpeg';
-                pass
+                break;
             case  '.png':
                 // return '.png';
-                pass
+                break;
             case  '.gif':
                 // return '.png';
-                pass
+                break;
             default:
                 throw new Error (`imagenPerfil solo admite formato jpg, png y jpeg`);
         }
 
-    next();
+    return true;
 }
 
 

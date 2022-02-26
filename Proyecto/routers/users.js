@@ -9,7 +9,7 @@ const publicPath = path.resolve(__dirname, 'public');
 const methodOverride = require('method-override');
 
 const { check, body } = require('express-validator');
-const { validateEmailRegister, validateEmailLogin, validatePasswordLogin } = require('../middlewares/validateEmailPassword');
+const { validateEmailRegister, validateEmailLogin, validatePasswordLogin, validatePasswordRegister } = require('../middlewares/validateEmailPassword');
 const { validarCampos } = require('../middlewares/validarCampos');
 const { guestMiddleware } = require('../middlewares/guestMiddleware');
 const { validateImage } = require('../middlewares/validateImage');
@@ -50,7 +50,7 @@ const validateLogin = [
 //
 const registerUserMiddleware = [
     check('nombreApe').exists().withMessage('"Nombre y Apellido" es obligatorio').bail()
-    .isLength({ min: 2}).withMessage('tipo de dato "operacion" incorrecto'),
+    .isLength({ min: 2}).withMessage('tipo de dato "Nombre y Apellido" incorrecto'),
 
     check('email').exists().withMessage('"email" es obligatorio').bail()
     .isEmail().withMessage('"email" no valido').bail()
@@ -58,10 +58,10 @@ const registerUserMiddleware = [
 
     
     check('password').exists().withMessage('"contraseña" es obligatorio').bail()
-    .isLength({ min: 8}).withMessage('"contraseña" debe tener longitud minima de 8 caracteres'),
+    .isLength({ min: 8}).withMessage('"contraseña" debe tener longitud minima de 8 caracteres')
+    .custom(validatePasswordRegister),
  
-    check('imagenPerfil').exists().withMessage('"imagen" es obligatorio').bail()
-    .custom( validateImage ),
+    check('imagenPerfil').custom( validateImage  ),
    
 
 ]
@@ -69,13 +69,15 @@ const registerUserMiddleware = [
 
 
 router.get('/login',guestMiddleware, userController.login);
-router.post('/login',  [validateLogin, validarCampos ], userController.processLogin);
+router.post('/login',  [validateLogin ], userController.processLogin);
 
 router.get('/logout', userController.logout);
 
 router.get('/register', guestMiddleware, userController.register);
-router.post('/register',[upload.single('imagenPerfil'),
-                        registerUserMiddleware, validarCampos], userController.processRegister);
+router.post('/register',[
+                        upload.single('imagenPerfil'),
+                        registerUserMiddleware,
+                        ], userController.processRegister);
 
 
 module.exports = router;
