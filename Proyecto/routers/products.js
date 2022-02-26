@@ -2,6 +2,7 @@ const express= require('express')
 const { Router } = require("express");
 const multer = require('multer');
 
+
 const productsController = require("../controllers/productsController");
 
 // path
@@ -30,6 +31,7 @@ const { validarCampos } = require('../middlewares/validarCampos');
 const { authMiddleware } = require('../middlewares/authMiddleware');
 
 // middleware express validator
+
 
 
 // router

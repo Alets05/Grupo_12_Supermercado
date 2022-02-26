@@ -22,50 +22,17 @@ const userController = {
         } = req.body;
         
         console.log('Process Login: ' + email + '  '  + password + '  ' +recordarUsuario);
-        // Consulto si usuario existe.
-        let user = await db.User.findOne({where: { email : email } })
-        
-        if (!user) {
-              return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
-                 {
-                status: 400, 
-                error : {
-                campo : 'email',
-                msg: 'usuario no se encuentra en la base de datos'
-                }
-            }
-        });
-
-        }
-        
-        // valido password  
-        if (!bcryptjs.compareSync(password, user.password)) {
-            
-           return res.render(path.join(__dirname ,'../views/users/Login_prov'), { data :
-            {
-           status: 400, 
-           error : {
-           campo : 'password',
-           msg: 'password Incorrecto'
-                    }
-                }
-            });
-    }
-
 
         let userSession = {};
-        Object.assign(userSession, user);
+        Object.assign(userSession, req.usuario);
         userSession.password= ''
         req.session.userLogged = userSession;
         
         if (recordarUsuario) {
             console.log('Guardo cookie');
             res.cookie('userEmail', email, {maxAge : (1000 * 60 ) * 2 }); // guardo por 2 minutos
-        }
-        
-        
+        }        
         res.redirect('/');
-        
     },
 
 
@@ -109,20 +76,6 @@ const userController = {
             })
         }
     
-        // Valido que no exista email registrado
-        // let usuarios = require('../data/users.json');
-        // let existUser = usuarios.find ( user => user.email === email);
-        // if (existUser){
-
-        let usuario = await db.User.findOne({where: { email : email } })
-        if (usuario){
-            return res.status(400).json({
-            error:{
-                msg : 'El email ya se encuentra registrado'
-            }
-        })
-        }
-
         // encripto password
         const salt = bcryptjs.genSaltSync(10);
         const passwordHash = bcryptjs.hashSync (password, salt);
@@ -137,12 +90,6 @@ const userController = {
             avatar : req.file.filename,
             passwordtest : password,
         }
-
-
-        // Guardo nuevo usuario 
-        // usuarios.push (user);
-        // console.log(JSON.stringify(usuarios));
-        // fs.writeFileSync('./data/users.json', JSON.stringify(usuarios));
          
         await db.User.create({
             firstName: user.nombreUsuario,
@@ -154,7 +101,6 @@ const userController = {
             createdAt: "2019-12-01T03:55:41.000Z",
             updatedAt: "2019-12-01T03:55:41.000Z",
         });
-        // res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
 
         res.redirect('/');
     } catch (error) {
@@ -162,8 +108,6 @@ const userController = {
     }
 
     },
-
-
 
 }
 

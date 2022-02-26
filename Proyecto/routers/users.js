@@ -5,6 +5,16 @@ const multer = require('multer');
 
 const path = require('path')
 const publicPath = path.resolve(__dirname, 'public');
+// Para recibir PUT / DELETE:
+const methodOverride = require('method-override');
+
+const { check, body } = require('express-validator');
+const { validateEmailRegister, validateEmailLogin, validatePasswordLogin } = require('../middlewares/validateEmailPassword');
+const { validarCampos } = require('../middlewares/validarCampos');
+const { guestMiddleware } = require('../middlewares/guestMiddleware');
+const { validateImage } = require('../middlewares/validateImage');
+const req = require('express/lib/request');
+const { request } = require('http');
 
 const router = Router();
 router.use(express.static(publicPath))
@@ -24,22 +34,37 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 
-// Para recibir PUT / DELETE:
-const methodOverride = require('method-override');
-const { check } = require('express-validator');
-const { validarCampos } = require('../middlewares/validarCampos');
-const { guestMiddleware } = require('../middlewares/guestMiddleware');
 router.use(methodOverride('_method'));
 
 const validateLogin = [
-    check('email')
+    body('email')
     .notEmpty().withMessage('Debes completar el email').bail()
-    .isEmail().withMessage('Debes completar un email válido'),
-    check('password')
+    .isEmail().withMessage('Debes completar un email válido')
+    .custom (validateEmailLogin),
+    body('password')
     .notEmpty().withMessage('Debes completar la contraseña').bail()
-    .isLength({ min: 4 }).withMessage('La contraseña debe ser más larga')
+    .isLength({ min: 4 }).withMessage('La contraseña debe tener minimo 4 caracteres.').bail()
+    .custom (validatePasswordLogin),
     ]
 
+//
+const registerUserMiddleware = [
+    check('nombreApe').exists().withMessage('"Nombre y Apellido" es obligatorio').bail()
+    .isLength({ min: 2}).withMessage('tipo de dato "operacion" incorrecto'),
+
+    check('email').exists().withMessage('"email" es obligatorio').bail()
+    .isEmail().withMessage('"email" no valido').bail()
+    .custom( validateEmailRegister ),
+
+    
+    check('password').exists().withMessage('"contraseña" es obligatorio').bail()
+    .isLength({ min: 8}).withMessage('"contraseña" debe tener longitud minima de 8 caracteres'),
+ 
+    check('imagenPerfil').exists().withMessage('"imagen" es obligatorio').bail()
+    .custom( validateImage ),
+   
+
+]
 
 
 
@@ -49,7 +74,8 @@ router.post('/login',  [validateLogin, validarCampos ], userController.processLo
 router.get('/logout', userController.logout);
 
 router.get('/register', guestMiddleware, userController.register);
-router.post('/register',upload.single('imagenPerfil'), userController.processRegister);
+router.post('/register',[upload.single('imagenPerfil'),
+                        registerUserMiddleware, validarCampos], userController.processRegister);
 
 
 module.exports = router;
