@@ -26,12 +26,14 @@ const upload = multer({storage});
 
 // Para recibir PUT / DELETE:
 const methodOverride = require('method-override');
+
+// middleware express validator
 const { guestMiddleware } = require('../middlewares/guestMiddleware');
 const { validarCampos } = require('../middlewares/validarCampos');
 const { authMiddleware } = require('../middlewares/authMiddleware');
-const { productsApiController } = require('../controllers/api/productsApi');
+const { body, check } = require('express-validator');
+const { validateImage } = require('../middlewares/validateImage');
 
-// middleware express validator
 
 
 
@@ -42,15 +44,32 @@ router.use(methodOverride('_method'));
 
 
 
+const validateProduct = [
+    body('nombreProducto')
+    .notEmpty().withMessage('Nombre del producto es obligatorio').bail()
+    .isLength({ min: 5}).withMessage('Nombre de producto debe tener al menos 5 caracteres'),
+    
+    body('descripcionProducto')
+    .notEmpty().withMessage('Debes completar descripcion del product').bail()
+    .isLength({ min: 20 }).withMessage('Descripcion debe contener minimo 20 caracteres.').bail(),
+
+    check('imagenPerfil').custom( validateImage  ),
+   
+    ]
+
+
+
+
+
 // routes
 router.get('/carrito' ,[authMiddleware, validarCampos] , productsController.carrito);
 router.get('/create', [authMiddleware, validarCampos], productsController.crear);
 router.get('/:id/edit', [authMiddleware, validarCampos] ,productsController.editar);
-router.put('/:id/edit',upload.single('imagenProducto'), productsController.actualizar);
+router.put('/:id/edit',[upload.single('imagenProducto'),validateProduct] , productsController.actualizar);
 router.get('/:id', [authMiddleware, validarCampos] ,productsController.producto);
 router.delete('/:id',productsController.borrar);
 router.get('/', [authMiddleware, validarCampos], productsController.productos);
-router.post('/',upload.single('imagenProducto') ,productsController.guardar);
+router.post('/',[upload.single('imagenProducto'), validateProduct] ,productsController.guardar);
 
 
 

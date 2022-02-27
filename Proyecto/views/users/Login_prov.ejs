@@ -36,15 +36,19 @@
         <form action="./login" method="POST">
             <fieldset> 
                 <legend>Nombre</legend> 
+                <p class = "email-help"> Ingrese mail valido. Por ej : pepito@gmail.com</p>
                 <div class="field-container">
                     <i class="fas fa-user">   </i>
                     <input type="email" name="email" id="email" placeholder=""> 
+                    
+                
               </div>
                
             </fieldset>
 
             <fieldset>
                 <legend>Contraseña</legend> 
+                <p class = "password-help"> Minimo 8 caracteres</p>
                 <div class="field-container">
                     <i class="fas fa-lock">   </i>
                     <input type="password" name="password" id="password" placeholder="">
@@ -74,4 +78,56 @@
 
 <!-- Scripts -->
 <script type="module" src="/js/base.js"></script>
+<!-- Validaciones -->
+<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+<script>
+
+    
+    let inputs = document.querySelectorAll('input')
+
+    for (let input of inputs) {
+        input.addEventListener('input',validar)
+}
+
+function validar (e){
+    if (e.srcElement.id === 'email'){ validarEmail(e)}
+    if (e.srcElement.id === 'password'){ validarPassword(e)}
+
+}
+
+function validarEmail(e){
+    let emailHelp = document.querySelector('.email-help')
+    
+    if (validator.isEmail(e.srcElement.value) && !validator.isEmpty(e.srcElement.value))
+    {
+        emailHelp.style.visibility = 'hidden'
+        e.target.setCustomValidity('');
+    }
+    else {
+        emailHelp.style.visibility = 'visible'
+        e.target.setCustomValidity('invalid');
+    }
+}
+    
+function validarPassword(e){
+    let passwordHelp = document.querySelector('.password-help')
+    
+    if (validator.isLength( e.srcElement.value, { min:8 }))
+    {
+        passwordHelp.style.visibility = 'hidden';
+        e.target.setCustomValidity('');
+    }
+    else {
+         
+            passwordHelp.style.visibility = 'visible';
+            e.target.setCustomValidity('invalid');
+        
+    }
+}
+// }
+
+
+
+</script>
+
 </html>

@@ -1,4 +1,5 @@
 const { request, response } = require("express");
+const { validationResult } = require("express-validator");
 const fs = require('fs');
 const { type } = require("os");
 const path = require('path')
@@ -72,6 +73,14 @@ const productsController = {
             imagenProducto
             } = req.body;
 
+    
+            const errors = validationResult(req);
+            if ( !errors.isEmpty() ){
+                console.log(errors.mapped())
+                return res.render(path.join(__dirname ,'../views/products/editFormulario'), { errors : errors.mapped(), producto : req.body
+                });  
+            }
+    
             let habilitadoProductoBool=false;
             
             if (habilitadoProducto === 'on'){
@@ -134,6 +143,14 @@ const productsController = {
             imagenProducto
             } = req.body;
 
+
+            const errors = validationResult(req);
+            if ( !errors.isEmpty() ){
+                console.log(errors.mapped())
+                return res.render(path.join(__dirname ,'../views/products/editFormulario'), { errors : errors.mapped(),producto : req.body
+                });  
+            }
+
             const id = req.params.id;
             let idProd = parseInt(id);
 
@@ -143,7 +160,6 @@ const productsController = {
                 habilitadoProductoBool = true
             }
     
-        
             const producto = {
                 
                 name:nombreProducto, 
@@ -157,6 +173,7 @@ const productsController = {
                 warranty:garantiaProducto,
                 avatar:req.file.filename
                 }
+        
 
                 try {
                     let prod = await db.Product.update(producto, {where : {id:idProd}});

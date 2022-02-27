@@ -34,6 +34,7 @@
         <form action="./" method="POST" enctype="multipart/form-data">  
             <fieldset> 
                 <legend>Nombre del Producto:</legend> 
+                <p class = "nombre-help"> minimo 5 caracteres</p>
                 <div class="field-container">
                     <input type="text" id="nombreProducto" name="nombreProducto">
                 </div>
@@ -41,7 +42,8 @@
 
             <fieldset> 
                <legend>Descripcion del Producto:</legend> 
-                <div class="field-container">
+               <p class = "descripcion-help"> minimo 20 caracteres</p>
+               <div class="field-container">
                     <input type="text" id="descripcionProducto" name="descripcionProducto">
                 </div>
             </fieldset>
@@ -108,6 +110,7 @@
             
             <fieldset> 
                 <legend>Inserte Imagen:</legend>    
+                <p class = "imagen-help"> Formatos permitidos: JPG, JPEG, PNG, GIF</p>    
                 <div class="field-container">
                    <input type="file" name="imagenProducto" id="imagenProducto">
                 </div>
@@ -128,6 +131,82 @@
 
 <!-- Scripts -->
 <script type="module" src="/js/base.js"></script>
+<!-- Validaciones -->
+<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+<script>
+     
+     let inputs = document.querySelectorAll('input')
+
+    for (let input of inputs) {
+        input.addEventListener('input',validar)
+    }
+
+    function validar (e){
+    if (e.srcElement.id === 'nombreProducto'){ validarNombre(e)} 
+    if (e.srcElement.id === 'descripcionProducto'){ validarDescripcion(e)}
+    if (e.srcElement.id === 'imagenProducto'){ validarImagenProducto(e)}
+
+    }
+
+    function validarNombre(e){
+    let nombreHelp = document.querySelector('.nombre-help')
+    
+    if (validator.isLength( e.srcElement.value, { min:5 }))
+    {
+        nombreHelp.style.visibility = 'hidden';
+        e.target.setCustomValidity('');
+    }
+    else {
+            nombreHelp.style.visibility = 'visible';
+            e.target.setCustomValidity('invalid');
+        
+        }
+    }
+
+    function validarDescripcion(e){
+    let descripcionHelp = document.querySelector('.descripcion-help')
+    
+    if (validator.isLength( e.srcElement.value, { min:20 }))
+    {
+        descripcionHelp.style.visibility = 'hidden';
+        e.target.setCustomValidity('');
+    }
+    else {
+        descripcionHelp.style.visibility = 'visible';
+            e.target.setCustomValidity('invalid');
+        
+        }
+    }
+
+
+
+
+function validarImagenProducto(e){
+    let passwordHelp = document.querySelector('.imagen-help')
+    let filename = e.target.value;
+    let formatos = ['jpeg', '.jpg', '.png', '.gif']
+    let extension =filename.substr(filename.length - 4, filename.length) 
+    let validacion = false
+    for (let j = 0; j < formatos.length; j++) {
+        if (extension.toLowerCase() == formatos[j].toLowerCase()) {
+            validacion = true;
+            break;
+        }
+    }
+    if (validacion)
+    {
+        passwordHelp.style.visibility = 'hidden';
+        e.target.setCustomValidity('');
+    }
+    else {
+            passwordHelp.style.visibility = 'visible';
+            e.target.setCustomValidity('invalid');
+        
+    }
+}
+
+</script>
+
 
 </html>
 
