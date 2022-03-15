@@ -2,6 +2,8 @@ const express = require('express');
 
 const path = require('path');
 
+const cors = require('cors')
+
 // manejo de sesiones
 const session = require('express-session')
 
@@ -34,7 +36,7 @@ app.set('view engine', 'ejs')
 const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath))
 
-
+app.use(cors())
 
 
 app.use(express.json());       // to support JSON-encoded bodies

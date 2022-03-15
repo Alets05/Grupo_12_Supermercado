@@ -8,7 +8,10 @@ const productsApiController = {
         res.status(200).json(
             {   
                 total : productos.length,
-                data: productos
+                data: {
+                    productos
+
+                }
             }
         )
     },
