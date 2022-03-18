@@ -7,7 +7,7 @@ const d = document;
 
 d.addEventListener('DOMContentLoaded', (e)=>{
   d.addEventListener('click', (e)=>{
-      console.log(e.target)
+      // console.log(e.target)
   })
    
     hamburguerMenu(".activar-menu", ".panel-categorias");

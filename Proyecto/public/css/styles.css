@@ -337,6 +337,13 @@ footer article h3 {
   margin: 5px auto;
 }
 
+#amount {
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgb(55, 53, 51);
+  opacity: 0.7;
+}
 /******* tablets   ***************/
 @media (min-width: 600px) {
   /******************** header *********************/
@@ -367,6 +374,7 @@ footer article h3 {
     justify-content: space-between;
     flex-direction: row;
   }
+
   /******************** footer *********************/
   footer {
     padding-bottom: 5px;

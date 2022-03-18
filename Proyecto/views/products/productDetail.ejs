@@ -28,6 +28,9 @@
     </header>
 
     <main>
+        <section>
+            <button class="add-card-btn" ><a href="./"> <i class="fas fa-arrow-left"> </i></a></button>
+        </section>
         
         <section class="detail-container">
             <article class="detail-card">
@@ -37,20 +40,20 @@
                 <div class= "body-dc"> 
 
                     <div class="img-body-dc">   
-                        <img src="/images/products/<%- producto.avatar %>" alt="producto">        
+                        <img src="/images/products/<%- producto.avatar %>" alt="producto" class="img-dc">        
                     </div>
 
                     <div class="content-body-dc">
                         <div class="header-content-body-dc">
                             <p class="header-content-body-dc-desc"> <%- producto.name %> </p>
-                            <p class="price-dc"> u$s <%- producto.price %></p>
+                            <p class="price-dc"> u$s <p class="price price-dc"><%- producto.price %></p></p>
                         </div>
 
                         
                         <div class="quantity-container">
-                            <button class="quantity-plus">  <i class="fas fa-plus"> </i> </button>
-                            <p class="quantity"> 1 </p>
-                            <button class="quantity-minus">  <i class="fas fa-minus"> </i> </button>
+                            <button class="quantity-plus" id="plus">  <i class="fas fa-plus" id="plus-ico"> </i> </button>
+                            <input type="number" id="amount" value="1" min="1">  </input>
+                            <button class="quantity-minus"id="minus">  <i class="fas fa-minus" id="minus-ico"> </i> </button>
                         </div>
 
 
@@ -88,7 +91,7 @@
             <!-- Logueado + Admin -->
             <div class="botones">
             <!--comprar-->
-            <button  class="boton-comprar add-card-btn"><i class="fas fa-shopping-cart"></i></button>
+            <button  class="boton-add add-card-btn"><i class="fas fa-shopping-cart" id="shop-ico"></i></button>
             <% if(locals.isLogged && userLogged.admin == true) { %>
                 <button class="add-card-btn"> 
                     <a  class="add-link" href="./<%- producto.id %>/edit">
@@ -109,6 +112,8 @@
             </article>
 
         </section>
+
+
 
         <div class="section-separador">
             <p class="text-separador"> 
@@ -163,6 +168,6 @@
 
 <!-- Scripts -->
 <script type="module" src="/js/base.js"></script>
-<script src="/js/agregar-producto.js"></script>
+<script type="module" src="/js/agregar-producto.js"></script>
 
 </html>
