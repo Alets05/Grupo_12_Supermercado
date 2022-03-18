@@ -26,7 +26,9 @@
        <%- include('../partials/navbar')%>
     
     </header>
+
     <main>
+        
         <section class="detail-container">
             <article class="detail-card">
 
@@ -79,9 +81,31 @@
                 
                 <div class="desc-content-dc">
                 <p class="desc-content-dc-title">Descripción:</p>
-                <p class="desc-content-dc-body"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque libero, debitis accusantium id nobis inventore cupiditate earum odio, ducimus sit consequatur atque voluptas fugiat nulla dolor! Ipsum recusandae quisquam omnis.</p>
+                <p class="desc-content-dc-body"><%- producto.description %> </p>
                 </div>
-           
+  
+
+            <!-- Logueado + Admin -->
+            <div class="botones">
+            <!--comprar-->
+            <button  class="boton-comprar add-card-btn"><i class="fas fa-shopping-cart"></i></button>
+            <% if(locals.isLogged && userLogged.admin == true) { %>
+                <button class="add-card-btn"> 
+                    <a  class="add-link" href="./<%- producto.id %>/edit">
+                        <i class="fas fa-sticky-note"></i>
+                    </a>                
+                </button>
+
+                <form action="/products/<%= producto.id %>/delete?_method=DELETE" method="POST">
+                    <!--eliminar-->
+                    <button type="submit" class="boton-formulario add-card-btn"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                
+            <% } %>
+            
+            </div>
+
+
             </article>
 
         </section>
@@ -114,6 +138,9 @@
                             </a>
 
                      </button>
+
+   
+
                      </div>
                 </div>
 
@@ -135,14 +162,7 @@
 
 
 <!-- Scripts -->
-<script type="module" src="/js/base.js">
- 
-</script>
+<script type="module" src="/js/base.js"></script>
+<script src="/js/agregar-producto.js"></script>
 
-
-<script>
-    // Ejemplo de script insertado en html
-    // const titulo = document.querySelector('.h1')
-    // titulo.innerHTML= 'HOLA'
-</script>
 </html>

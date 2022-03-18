@@ -28,9 +28,20 @@
     </header>
     
     <main>
-
+        <% if(locals.isLogged && userLogged.admin == true) { %>
+            <div class="add-card">
+                <button class="add-card-btn"> 
+                    <a  class="add-link" href="./create">
+                    <i class="fas fa-plus"> </i>
+                    <p>Agregar Producto</p>
+                    </a>                
+                </button>
+            </div>
+            <% } %>
+           
         <section class="products">
 
+ 
             <% for (producto of productos ) { %>
                 <div class="product-card">
                     
@@ -40,7 +51,7 @@
                         <img src="/images/products/<%- producto.avatar %>" alt="imagen">
                         <div class="body-card">
                             <p class="title-card"><%-producto.name%>   </p>
-                            <p class="price-card"> u$s <%-producto.price%> HOLA </p>
+                            <p class="price-card"> u$s <%-producto.price%> </p>
                         </div>
                         <p class="desc-card"> <%-producto.description%></p>
                     </article>
@@ -51,6 +62,7 @@
                             <p>Comprar</p>
                             </a>                
                         </button>
+
                     </div>
                 </div>
                 

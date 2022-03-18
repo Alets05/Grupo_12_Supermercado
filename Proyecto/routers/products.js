@@ -67,7 +67,7 @@ router.get('/create', [authMiddleware, validarCampos], productsController.crear)
 router.get('/:id/edit', [authMiddleware, validarCampos] ,productsController.editar);
 router.put('/:id/edit',[upload.single('imagenProducto'),validateProduct] , productsController.actualizar);
 router.get('/:id' ,productsController.producto);
-router.delete('/:id/',productsController.borrar);
+router.delete('/:id/delete',productsController.borrar);
 router.get('/', productsController.productos);
 router.post('/',[upload.single('imagenProducto'), validateProduct] ,productsController.guardar);
 

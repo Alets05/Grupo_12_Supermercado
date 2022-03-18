@@ -246,6 +246,17 @@ nav hr {
   justify-content: space-between;
   flex-direction: column;
 }
+
+.botones {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: column;
+}
+
+.botones form {
+  display: flex;
+  flex-direction: column;
+}
 /*************************** Footer **************************/
 footer {
   display: flex;
@@ -351,6 +362,11 @@ footer article h3 {
 
   /******************** main *********************/
 
+  .botones {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
   /******************** footer *********************/
   footer {
     padding-bottom: 5px;

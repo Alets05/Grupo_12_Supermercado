@@ -11,8 +11,10 @@ const productsController = {
 
     productos: async (req=request, res = response)=>{
 
+        let userLogged = await req.session.userLogged
+
         let productos = await db.Product.findAll({where : { enabled : true} });
-        res.render( path.join( __dirname , '../views/products/products'), {productos : productos, errors:null}  );
+        res.render( path.join( __dirname , '../views/products/products'), {productos : productos, userLogged: userLogged.dataValues,errors:null}  );
     },
 
 
@@ -21,12 +23,14 @@ const productsController = {
         let id = req.params.id;
         id = parseInt(id);
 
+        let userLogged = await req.session.userLogged
+
         let producto = await db.Product.findOne({where: {id:id}});
         // console.log(producto.dataValues);
         const productosSimilares = await db.Product.findAll({where : { idCategory : producto.idCategory, enabled:true} } );
 
         // console.log(productosSimilares);
-        res.render( path.join( __dirname , '../views/products/productDetail'), {producto : producto , productosSimilares: productosSimilares, errors:null}  );
+        res.render( path.join( __dirname , '../views/products/productDetail'), {producto : producto , productosSimilares: productosSimilares, userLogged: userLogged.dataValues,errors:null}  );
     },
 
     borrar: async (req=request, res = response)=>{
@@ -47,10 +51,10 @@ const productsController = {
             console.log(error);                
         }
         
-
-        res.status(200).json({
-            msg:"Borrado correctamente"
-        });  
+        return res.redirect ( "/products/");
+        // res.status(200).json({
+        //     msg:"Borrado correctamente"
+        // });  
     },
 
    
