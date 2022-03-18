@@ -25,11 +25,18 @@
   
     <main>
 
+        
         <div class="title-form">
             <p> Formulario de Registro</p>    
         </div>
+        <%if (errors) {%>
+            <p> Hubo errores al intentar dar de alta los campos.</p> 
+            <% for (error in errors)  {%>
+                <p>   <%- errors[error].msg %></p> 
+            <%}%>
+        <%}%>
 
-        <form  action="./" method="POST" enctype="multipart/form-data"> 
+        <form  action="./register" method="POST" enctype="multipart/form-data"> 
             <fieldset> 
                 <legend>Nombre y Apellido</legend> 
                 <p class = "nombre-help"> minimo 2 caracteres</p>
@@ -37,6 +44,8 @@
                     <i class="fas fa-user">   </i> 
                     <input type="text" id="NombreApellido" name="nombreApe">
                 </div>
+                
+                <p class = "nombre-error"></p>
             </fieldset>
 
             <fieldset> 
@@ -45,6 +54,8 @@
                     <i class="fas fa-user-tag">   </i>
                     <input type="text"id="Nombre de usuario" name="nombreUsuario">
                 </div>
+                
+                <p class = "username-error"></p>
             </fieldset>
         
 
@@ -55,6 +66,8 @@
                     <i class="fas fa-calendar">   </i> 
                     <input type="text"id="Fecha de Nacimiento" name="fechaNac">
                 </div>
+                
+                <p class = "fecha-error"></p>
             </fieldset>
         
     
@@ -64,6 +77,8 @@
                     <i class="fas fa-map-marker">   </i> 
                     <input type="text"id="Domicilio" name="Address">
                 </div>
+                
+                <p class = "domicilio-error"></p>
             </fieldset>
 
             <fieldset> 
@@ -73,6 +88,8 @@
                     <i class="fas fa-envelope">   </i> 
                     <input type="email" name="email" id="email">
                 </div class="field-container">
+                
+                <p class = "email-error"></p>
             </fieldset>
     
             <fieldset> 
@@ -82,6 +99,8 @@
                     <i class="fas fa-lock">   </i> 
                     <input type="password" name="password" id="password">
                 </div class="field-container">
+                
+                <p class = "password-error"></p>
             </fieldset>
 
             <fieldset> 
@@ -90,6 +109,8 @@
                     <i class="fas fa-lock">   </i> 
                     <input type="password" name="passwordConfirm" id="Password_Confirmation">
                </div>
+               
+               <p class = "passwordConfirm-error"></p>
             </fieldset>
 
             <fieldset> 
@@ -98,6 +119,8 @@
                 <div class="field-container">
                    <input type="file" name="imagenPerfil" id="imagenPerfil">
                 </div>
+                
+                <p class = "imagenPerfil-error"></p>
             </fieldset>
     
          <h8>Al crear una cuenta, aceptas el Aviso de Privacidad, los Términos y Condiciones, así como el envío de noticias y promociones exclusivas. Puedes desactivar el envío de promociones desde el enlace incluido en cada correo.</h8> 

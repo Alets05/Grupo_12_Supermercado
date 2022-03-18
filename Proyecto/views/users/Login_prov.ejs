@@ -26,11 +26,15 @@
     </header>
    
     <main>
-
-        <!-- <% if ( typeof (data) !== 'undefined' ) { %>
-            <%- data.error.msg %>
-        <% } %> -->
-    
+        <div class="title-form">
+            <p>  Login</p>    
+        </div>
+        <% if (errors) { %>
+            <p> Hubo errores al loguearse.</p> 
+            <% for (error in errors)  { %>
+                <p>   <%- errors[error].msg %></p> 
+            <%}%>
+        <%}%>
 
 
         <form action="./login" method="POST">

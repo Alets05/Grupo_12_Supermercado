@@ -11,7 +11,7 @@ const userController = {
 
     
     login : (req=request, res= response)=> {
-        res.render(path.resolve(__dirname ,'../views/users/Login_prov'));
+        res.render(path.resolve(__dirname ,'../views/users/Login_prov'),{errors : null});
     },
 
     processLogin : async (req=request, res= response) => {
@@ -26,8 +26,9 @@ const userController = {
 
         const errors = validationResult(req);
         if ( !errors.isEmpty() ){
-            console.log(errors.mapped())
-            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { errors : errors.mapped(),old : req.body
+            errors_msg = errors.mapped()
+            console.log(errors_msg)
+            return res.render(path.join(__dirname ,'../views/users/Login_prov'), { errors : errors_msg,old : req.body
             });  
         }
 
@@ -78,8 +79,11 @@ const userController = {
             
         const errors = validationResult(req);
         if ( !errors.isEmpty() ){
-            console.log(errors.mapped())
-            return res.render(path.join(__dirname ,'../views/users/Register_prov'), { errors : errors.mapped(),old : req.body
+            errors_msg = errors.mapped()
+            console.log(errors_msg)
+            // errors_msg = JSON.stringify(errors_msg)
+            // console_log(errors_msg)
+            return res.render(path.join(__dirname ,'../views/users/Register_prov'), { errors : errors_msg,old : req.body
             });  
         }
 
