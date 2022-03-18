@@ -30,6 +30,12 @@
         <div class="title-form">
             <p> Formulario de Nuevo Producto</p>    
         </div>
+        <%if (errors) {%>
+            <p> Hubo errores al intentar dar de alta productos.</p> 
+            <% for (error in errors)  {%>
+                <p>   <%- errors[error].msg %></p> 
+            <%}%>
+        <%}%>
  
         <form action="./" method="POST" enctype="multipart/form-data">  
             <fieldset> 

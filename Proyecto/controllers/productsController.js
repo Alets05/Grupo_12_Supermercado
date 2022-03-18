@@ -11,8 +11,8 @@ const productsController = {
 
     productos: async (req=request, res = response)=>{
 
-        let productos = await db.Product.findAll();
-        res.render( path.join( __dirname , '../views/products/products'), {productos : productos}  );
+        let productos = await db.Product.findAll({where : { enabled : true} });
+        res.render( path.join( __dirname , '../views/products/products'), {productos : productos, errors:null}  );
     },
 
 
@@ -23,18 +23,19 @@ const productsController = {
 
         let producto = await db.Product.findOne({where: {id:id}});
         // console.log(producto.dataValues);
-        const productosSimilares = await db.Product.findAll({where : { idCategory : producto.idCategory} } );
+        const productosSimilares = await db.Product.findAll({where : { idCategory : producto.idCategory, enabled:true} } );
 
         // console.log(productosSimilares);
-        res.render( path.join( __dirname , '../views/products/productDetail'), {producto : producto , productosSimilares: productosSimilares}  );
+        res.render( path.join( __dirname , '../views/products/productDetail'), {producto : producto , productosSimilares: productosSimilares, errors:null}  );
     },
 
     borrar: async (req=request, res = response)=>{
 
-        const id = req.params.id;
-        const idprod = parseInt(id,10);
+        let id = req.params.id;
+        // console.log(' borrar ' + req.params.id);
+        let idprod = parseInt(id);
         
-        console.log('idprod' + idprod + typeof(idprod));
+        // console.log('idprod ' + idprod+ ' ' + typeof(idprod));
         try {
         await db.Product.update({
             enabled:false},
@@ -47,15 +48,16 @@ const productsController = {
         }
         
 
-        res.redirect(this.productos) ;
+        res.status(200).json({
+            msg:"Borrado correctamente"
+        });  
     },
 
    
     
     crear : (req = request, res = response)=>{
         const id = req.params.id;
-        
-        res.render(path.resolve(__dirname ,'../views/products/Formulario') );
+        res.render(path.resolve(__dirname ,'../views/products/Formulario'), {errors:null} );
     },
     
     guardar : async (req = request, res = response)=>{
@@ -76,8 +78,9 @@ const productsController = {
     
             const errors = validationResult(req);
             if ( !errors.isEmpty() ){
-                console.log(errors.mapped())
-                return res.render(path.join(__dirname ,'../views/products/editFormulario'), { errors : errors.mapped(), producto : req.body
+                errors_msg = errors.mapped()
+                console.log(errors_msg)
+                return res.render(path.join(__dirname ,'../views/products/editFormulario'), { errors : errors_msg, producto : req.body
                 });  
             }
     
@@ -111,7 +114,7 @@ const productsController = {
              }
 
             
-        res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"guardado": true});
+        res.render(path.resolve(__dirname ,'../views/products/Formulario'), {"guardado": true, errors:null});
     },
 
     editar : async (req = request, res = response)=>{
@@ -125,7 +128,7 @@ const productsController = {
             
         return res.redirect ( "/products/");
         }
-        res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
+        res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto, errors:null});
     },
 
     actualizar : async (req = request, res = response) => {
@@ -146,8 +149,9 @@ const productsController = {
 
             const errors = validationResult(req);
             if ( !errors.isEmpty() ){
-                console.log(errors.mapped())
-                return res.render(path.join(__dirname ,'../views/products/editFormulario'), { errors : errors.mapped(),producto : req.body
+                errors_msg = errors.mapped()
+                console.log(errors_msg)
+                return res.render(path.join(__dirname ,'../views/products/editFormulario'), { errors : errors_msg,producto : req.body
                 });  
             }
 
@@ -182,7 +186,7 @@ const productsController = {
                 } catch (error) {
                     console.log(error);
                 }
-        res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto});
+        res.render(path.resolve(__dirname ,'../views/products/editFormulario'), {producto: producto, errors:null});
     
        
     },

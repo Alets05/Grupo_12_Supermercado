@@ -62,6 +62,7 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 app.get('/', (req,res)=>{
+    // res.redirect('/products/')
     res.render( path.resolve(__dirname,'views/Home'));
 })
 

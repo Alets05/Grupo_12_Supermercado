@@ -28,8 +28,15 @@
                 <h4> Carga de producto realizada con exito</h4>
             <% } %>
         <div class="title-form">
-            <p> Formulario de Nuevo Producto</p>    
+            <p> Formulario de Edicion de Producto</p>    
         </div>
+
+        <%if (errors) {%>
+            <p> Hubo errores al intentar dar de editar producto.</p> 
+            <% for (error in errors)  {%>
+                <p>   <%- errors[error].msg %></p> 
+            <%}%>
+        <%}%>
  
         <form action="./edit?_method=PUT" method="POST" enctype="multipart/form-data">  
             <fieldset> 

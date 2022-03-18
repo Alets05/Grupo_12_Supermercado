@@ -66,9 +66,9 @@ router.get('/carrito' ,[authMiddleware, validarCampos] , productsController.carr
 router.get('/create', [authMiddleware, validarCampos], productsController.crear);
 router.get('/:id/edit', [authMiddleware, validarCampos] ,productsController.editar);
 router.put('/:id/edit',[upload.single('imagenProducto'),validateProduct] , productsController.actualizar);
-router.get('/:id', [authMiddleware, validarCampos] ,productsController.producto);
-router.delete('/:id',productsController.borrar);
-router.get('/', [authMiddleware, validarCampos], productsController.productos);
+router.get('/:id' ,productsController.producto);
+router.delete('/:id/',productsController.borrar);
+router.get('/', productsController.productos);
 router.post('/',[upload.single('imagenProducto'), validateProduct] ,productsController.guardar);
 
 
