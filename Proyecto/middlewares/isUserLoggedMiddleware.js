@@ -1,4 +1,8 @@
-const isUserLoggedMiddleware  =  (req, res, next) => {
+
+
+const db = require('../database/models'); 
+
+const isUserLoggedMiddleware  = async  (req, res, next) => {
     res.locals.isLogged = false;
 
     // console.log('Cookies :  ' + req.cookies);
@@ -7,9 +11,15 @@ const isUserLoggedMiddleware  =  (req, res, next) => {
 
     let emailCookie = req.cookies.userEmail;
     console.log('emailCookie:' + emailCookie);
-    const usuarios = require ('../data/users.json');
-    const  userFromCookie =  usuarios.find (user => user.email === emailCookie);
-
+    let userFromCookie = false
+    if (typeof(emailCookie) != 'undefined'){
+        console.log(typeof(emailCookie))
+        const userFromCookie = await db.User.findOne({where: {email:emailCookie}})
+        console.log(userFromCookie)
+    }
+    //Ahora lo tomo de BD
+    // const usuarios = require ('../data/users.json');
+    // const  userFromCookie =  usuarios.find (user => user.email === emailCookie);
     if (userFromCookie) {
         let userAux = {};
         Object.assign (userAux, userFromCookie);

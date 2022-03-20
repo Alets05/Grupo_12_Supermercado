@@ -34,6 +34,7 @@ const productsController = {
             userLogged.dataValues={}
             userLogged.dataValues.admin=false
         }
+        console.log(userLogged)
         let producto = await db.Product.findOne({where: {id:id}});
         // console.log(producto.dataValues);
         const productosSimilares = await db.Product.findAll({where : { idCategory : producto.idCategory, enabled:true} } );
