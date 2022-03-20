@@ -27,7 +27,36 @@
     
     </header>
     
-    <main>
+    <main>       
+        <section class="carousel">
+                    
+        <div class="carousel-container">
+
+            <!-- imagen & texto -->
+            <div class="mySlides fade">
+                <div class="title-slide"> Oferta de la semana</div>
+                    <img src="/images/Bocina.png">
+                
+            </div>
+        
+            <div class="mySlides fade">
+                <div class="title-slide">Oportunidad</div>
+                     <img src="/images/Iphone.png" >
+              
+            </div>
+        
+            <div class="mySlides fade">
+                <div class="title-slide">Nuevos lanzamientos</div>
+                    <img src="/images/Laptop.png">
+                
+            </div>
+        
+        </div>
+        
+    </section>
+    
+
+        <% if(userLogged != null)  { %>
         <% if(locals.isLogged && userLogged.admin == true) { %>
             <div class="add-card">
                 <button class="add-card-btn"> 
@@ -38,7 +67,7 @@
                 </button>
             </div>
             <% } %>
-           
+        <% } %>   
         <section class="products">
 
  
@@ -81,7 +110,7 @@
 </body>
 
 <!-- Scripts -->
-<script type="module" src="js/base.js"></script>
-<script type="module" src="js/carousel-home.js"></script>
+<script type="module" src="/js/base.js"></script>
+<script type="module" src="/js/carousel-home.js"></script>
 
 </html>

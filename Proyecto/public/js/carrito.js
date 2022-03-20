@@ -43,7 +43,10 @@ window.onload = function () {
   // Actualizo totalizador
   
   let total = document.querySelector('#total')
-  total.innerText = localStorage.totalCarrito
+  if (typeof(localStorage.totalCarrito) == undefined){
+   total.innerText = 0    
+  }
+  else {total.innerText = localStorage.totalCarrito} 
     
 
 

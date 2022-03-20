@@ -59,7 +59,13 @@
             <fieldset> 
                 <legend>Categoria:</legend>    
                 <div class="field-container">
-                    <input type="text" name="categoriaProducto" id="categoriaProducto">
+                    <select name="categoriaProducto" id="categoriaProducto">
+                        <% for( categoria of categorias ){%>
+                        
+                            <option value=<%- categoria.id%> > <%- categoria.name%> </option>
+                        
+                        <% } %>
+                        </select>
                 </div class="field-container">
             </fieldset>
             
@@ -74,14 +80,14 @@
             <fieldset> 
                 <legend>Precio:</legend> 
                 <div class="field-container">
-                    <input type="text" name="precioProducto" id="precioProducto">
+                    <input type="number" min=0 name="precioProducto" id="precioProducto">
                </div>
             </fieldset>
 
             <fieldset> 
                 <legend>Descuento:</legend> 
                 <div class="field-container">
-                    <input type="text" name="descuentoProducto" id="descuentoProducto">
+                    <input type="number" min=0 max=99 name="descuentoProducto" id="descuentoProducto">
                </div>
             </fieldset>
             
@@ -93,21 +99,21 @@
             </fieldset>
 
             <fieldset> 
-                <legend>Tamaño:</legend> 
+                <legend>Tamaño[cm]:</legend> 
                 <div class="field-container">
                     <input type="number" name="tamanoProducto" id="tamanoProducto">
                </div>
             </fieldset>
 
             <fieldset> 
-                <legend>Peso:</legend> 
+                <legend>Peso [kg]:</legend> 
                 <div class="field-container">
                     <input type="number" name="pesoProducto" id="pesoProducto">
                </div>
             </fieldset>
             
             <fieldset> 
-                <legend>Garantia:</legend> 
+                <legend>Garantia [años]:</legend> 
                 <div class="field-container">
                     <input type="number" name="garantiaProducto" id="garantiaProducto">
                 </div>

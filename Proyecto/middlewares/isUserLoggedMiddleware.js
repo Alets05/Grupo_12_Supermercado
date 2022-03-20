@@ -14,14 +14,15 @@ const isUserLoggedMiddleware  =  (req, res, next) => {
         let userAux = {};
         Object.assign (userAux, userFromCookie);
         userAux.password='';
+        console.log('Aqui en middleware: cooqie' + JSON.stringify(userAux))
         req.session.userLogged= userAux;
-        console.log('User Cookie:' + req.session.userLogged);
+        console.log('User Cookie:' + JSON.stringify(req.session.userLogged));
     }
 
     }
 
     if(req.session.userLogged) {
-        console.log('User Session' + req.session.userLogged);
+        console.log('User Session' + JSON.stringify(req.session.userLogged));
         res.locals.isLogged =true;
     };
     next();

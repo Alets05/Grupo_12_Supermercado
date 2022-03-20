@@ -60,7 +60,13 @@
             <fieldset> 
                 <legend>Categoria:</legend>    
                 <div class="field-container">
-                    <input type="text" name="categoriaProducto" id="categoriaProducto" value="<%- producto.category %>" >
+                    <select name="categoriaProducto" id="categoriaProducto">
+                        <% for( categoria of categorias ){%>
+                        
+                            <option value=<%- categoria.id%> > <%- categoria.name%> </option>
+                        
+                        <% } %>
+                        </select>
                 </div class="field-container">
             </fieldset>
             

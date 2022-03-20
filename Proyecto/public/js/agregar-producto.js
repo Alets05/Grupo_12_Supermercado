@@ -70,15 +70,15 @@ window.onload = function() {
                totalCarrito += carro 
             }
             localStorage.setItem("totalCarrito", totalCarrito)
-            actualizarTotal(totalCarrito)
+            // actualizarTotal(totalCarrito)
         }
         alert('Agregaste' + " " + nameProd + " al carrito")
     })
 }
 
 
-function actualizarTotal(totalCarrito){
-    let total = document.querySelector('#total')
-    total.innerText = total
+// function actualizarTotal(totalCarrito){
+//     let total = document.querySelector('#total')
+//     total.innerText = total
 
-}
+// }
